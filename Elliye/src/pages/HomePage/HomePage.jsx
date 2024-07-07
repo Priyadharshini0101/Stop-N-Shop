@@ -84,7 +84,7 @@ function HomePage() {
             </div>
         </header>
         <div className='h-[600px] self-stretch  bg-[url("/src/assets/images/img_hero_section.png")] bg-cover bg-no-repeat'>
-            <div className='flex justify-center bg-white-A700_82 py-[157px] lg:py-8 md:py-5 sm:py-4'>
+            <div className='flex justify-center bg-white-A700_82 py-[157px] lg:py-8 md:py-5 sm:py-4 h-[500px]'>
                 <div className='container-xs flex pl-[139px] pr-15 lg:p-5 lg:pl-8 md:p-5 md:px-5 sm:px-4'>
                     <div className='flex w-[47%] flex-col items-start lg:w-full md:w-full'>
                         <Button></Button>
