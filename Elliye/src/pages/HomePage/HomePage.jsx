@@ -77,7 +77,7 @@ function HomePage() {
                        
                     </div>
                     <a href="#">
-                        <Button className="min-w-[107px] font-bold lg:text-[15px] sm:px-4" size="5xl" shape="square" >Login</Button>
+                        <Button className="min-w-[107px] font-bold lg:text-[15px] sm:px-4 text-white-A700" size="5xl" shape="square" >Login</Button>
                     </a>
                     
                 </div>

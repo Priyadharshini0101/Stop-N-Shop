@@ -28,7 +28,7 @@ const variants = {
   },
   fill:{
     gray_800 : "bg-gray-800 text-white",
-    white_A700: "bg-white-A700 text-gray-800"
+    white_A700: "bg-white_A700 text-gray-800"
   }
 
 }
