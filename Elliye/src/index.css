@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+  margin:0;
+  padding:0;
+}
+
+*{
+  box-sizing: border-box;
+  line-height: normal;
+  font-family: inherit;
+  margin:unset;
+}
+ul{
+  margin:0;
+  margin-inline: unset !important;
+  padding: 0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  display: block;
+}
+
+@layer components{
+  .container-xs{
+    @apply w-full mx-auto max-w-[1430px];
+  }
+
+  .container-sm{
+    @apply w-full mx-auto max-w-[1432px];
+  }
+  .container-md{
+    @apply w-full mx-auto max-w-[1433px];
+  }
+}
