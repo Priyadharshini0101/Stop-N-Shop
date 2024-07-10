@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, Suspense, useEffect, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import Text from "../../components/Text";
 import Img from "../../components/Img";
@@ -10,6 +10,7 @@ import Section from "../../components/Section";
 import Feature from "../../components/Feature";
 import { DataProvider } from "../../contexts/data";
 import RatingBar from "../../components/RatingBar";
+import { Link, scroller} from "react-scroll";
 
 function HomePage() {
   // const [arrivals , setArrivals] = useState([])
@@ -257,8 +258,20 @@ function HomePage() {
     setData(dataset)
   },[])
 
+  const scrollTo = (offset) =>{
+    scroller.scrollTo('scroll-to-div',{
+      duration:800,
+      delay:0,
+      smooth:'easeInOutQuart',
+      offset,
+    })
+  }
+
+
+  
+
   return (
-    <>
+    <Fragment to="/">
       {/*Title */}
       <Helmet>
         <title>Summer Sale - Exclusive Discounts on Fashion Collections</title>
@@ -284,35 +297,73 @@ function HomePage() {
             ></Img>
             
            
-            <ul className="flex flex-wrap gap-20 lg:gap-5 md:gap-5">
-              <li>
+            <ul className="flex flex-wrap gap-20 lg:gap-5 md:gap-5" onScroll={true}>
+              <li><Link
+              //  activeClass="gray-800"
+              // className="categories"
+              to="categories"
+              offset={-25}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+              >
                 <a href="#" target="_blank">
                   <Text as="p" className="!font-medium !text-gray-800">
                     Categories
                   </Text>
                 </a>
+              </Link>
               </li>
-
               <li>
+              <Link
+              //  activeClass="gray-800"
+              // className="categories"
+              to="new-arrivals"
+              offset={-25}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+              >
                 <a href="#">
                   <Text as="p" className="!font-medium !text-gray-800">
-                    New Arrival
+                    New Arrivals
                   </Text>
                 </a>
+                </Link>
               </li>
-              <li>
+             <li>
+             <Link
+              //  activeClass="gray-800"
+              // className="categories"
+              to="features"
+              offset={-25}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+              > 
                 <a href="#">
                   <Text as="p" className="!font-medium !text-gray-800">
                     Features
                   </Text>
                 </a>
+                </Link>
               </li>
-              <li>
+              <li> 
+              <Link
+              //  activeClass="gray-800"
+              // className="categories"
+              to="collections"
+              offset={-25}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+              >
                 <a href="#">
                   <Text as="p" className="!font-medium !text-gray-800">
                     Collections
                   </Text>
                 </a>
+                </Link>
               </li>
             </ul>
             <div className="flex w-[35%] items-center justify-between gap-5 md:w-full">
@@ -399,29 +450,29 @@ function HomePage() {
             </div>
           </div>
         </div>
-        {/*Categories Section*/}
-        <div className="container-md mt-[103px] flex flex-col gap-7 lg:p-5 md:p-5">
-          <Section className="mt-[9px]" heading="Categories"></Section>
-          <div className="flex gap-8 md:flex-col">
-            <Suspense fallback={<div>Loading feed...</div>}>
-              {categories.map((d, index) => (
-                <div
-                  key={"productsList" + index}
-                  className="flex w-full flex-col items-center gap-[7px] bg-gray-50 px-9   pb-[46px]  pt-9 md:pb-5 sm:p-4"
-                >
-                  <Img
-                    src={d.image}
-                    alt={d.label}
-                    className="h-[96px] w-[96px]"
-                  ></Img>
-                  <Text as="p">{d.label}</Text>
-                </div>
-              ))}
-            </Suspense>
+        {/*Categories Section*/}  
+        <div name="categories"  className="container-md mt-[103px] flex flex-col gap-7 lg:p-5 md:p-5">
+    <Section className="mt-[9px]" heading="Categories"></Section>
+    <div className="flex gap-8 md:flex-col">
+      <Suspense fallback={<div>Loading feed...</div>}>
+        {categories.map((d, index) => (
+          <div
+            key={"productsList" + index}
+            className="flex w-full flex-col items-center gap-[7px] bg-gray-50 px-9   pb-[46px]  pt-9 md:pb-5 sm:p-4"
+          >
+            <Img
+              src={d.image}
+              alt={d.label}
+              className="h-[96px] w-[96px]"
+            ></Img>
+            <Text as="p">{d.label}</Text>
           </div>
-        </div>
+        ))}
+      </Suspense>
+    </div>
+  </div>
         {/* New Arrivals */}
-        <div className="container-sm mt-[98px] flex lg:p-5 md:p-5">
+        <div name="new-arrivals" className="container-sm mt-[98px] flex lg:p-5 md:p-5">
           <div className="flex w-full flex-col gap-[33px]">
           <Section heading="New Arrivals"></Section>
             <div className="flex gap-8 md:flex-col">
@@ -473,7 +524,7 @@ function HomePage() {
         </div>
         {/*Features */}
         <DataProvider value={{data}}>
-        <div className="container-xs mt-[99px] h-[426px] lg:h-auto lg:p-5 md:h-auto md:p-5">
+        <div name="features" className="container-xs mt-[99px] h-[426px] lg:h-auto lg:p-5 md:h-auto md:p-5">
          <Section heading="Features"></Section>           
            <Feature filter="dress"></Feature>
         </div>
@@ -489,7 +540,7 @@ function HomePage() {
         </div>
         </DataProvider>
         {/*Collections */}
-        <div className="container-md mt-[100px] flex gap-8 lg:p-5 md:flex-col md:p-5">
+        <div name="collections" className="container-md mt-[100px] flex gap-8 lg:p-5 md:flex-col md:p-5">
           <div className="relative h-[400px] w-full lg:h-auto md:h-auto">
             <Img src="/src/assets/images/img_collection.jpg" alt="casual image" className="h-[400px] w-full object-cover"></Img>
             <Text size="lg" as="p" 
@@ -623,32 +674,76 @@ function HomePage() {
                     </Heading>
                     <ul className="flex flex-col gap-[9px]">
                       <li>
+                      <Link to="categories" 
+                //  activeClass="gray-800"
+              // className="categories"
+            
+              // spy={true}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+                offset={-25}
+              >
                         <a href="#">
                           <Text as="p" size="s" className="!text-white-A700">
                             Categories
                           </Text>
                         </a>
+                        </Link>
                       </li>
                       <li>
+                      <Link to="new-arrivals" 
+                //  activeClass="gray-800"
+              // className="categories"
+            
+              // spy={true}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+                offset={-25}
+              >
                         <a href="#">
                           <Text as="p" className="!text-white-A700">
-                            New Arrival
+                            New Arrivals
                           </Text>
                         </a>
+              </Link>
                       </li>
                       <li>
+                      <Link to="features" 
+                //  activeClass="gray-800"
+              // className="categories"
+            
+              // spy={true}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+                offset={-25}
+              >
                         <a href="#">
                           <Text as="p" className="!text-white-A700">
                             Features
                           </Text>
                         </a>
+                        </Link>
                       </li>
                       <li>
+                      <Link to="collections" 
+                //  activeClass="gray-800"
+              // className="categories"
+            
+              // spy={true}
+              smooth={true}
+              duration={500}
+              onClick={scrollTo(100)}
+                offset={-25}
+              >
                         <a href="#">
                           <Text as="p" className="!text-white-A700">
                             Collections
                           </Text>
                         </a>
+                  </Link>
                       </li>
                     </ul>
                   </div>
@@ -755,7 +850,7 @@ function HomePage() {
               </footer> 
               <hr></hr>
       </div>
-    </>
+    </Fragment>
   );
 }
 
