@@ -11,12 +11,12 @@ import Feature from "../components/Feature";
 import { DataProvider } from "../contexts/data";
 import RatingBar from "../components/RatingBar";
 import { Link, scroller} from "react-scroll";
-
+import jacket from '../assets/Images/img_jacket.png'
 
 function HomePage() {
 
   const categories = [
-    { image: "/src/assets/Images/img_jacket.png", label: "Jacket" },
+    { image: jacket, label: "Jacket" },
     { image: "/src/assets/Images/img_shirt.png", label: "T-shirt" },
     { image: "/src/assets/Images/img_pants.png", label: "Pants" },
     { image: "/src/assets/Images/img_dress.png", label: "Dress" },
