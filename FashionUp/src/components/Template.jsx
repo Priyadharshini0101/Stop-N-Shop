@@ -2,6 +2,7 @@ import React from 'react'
 import Text from './Text'
 import Img from './Img'
 
+
 function Template({image="/src/assets/images/img_placeholder.png",title="Purple Warm Jacket",review,addToCart,size="xs",price="$299",className=""}) {
   return (
     <div className={`${className} flex flex-col items-center w-full gap-3.5 p-[20px] sm:p-4`}>

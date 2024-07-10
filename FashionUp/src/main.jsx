@@ -6,6 +6,8 @@ import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} fr
 import HomePage from './pages/HomePage/HomePage.jsx'
   
 ReactDOM.createRoot(document.getElementById('root')).render(
+
+    
     <App></App>
 )
 

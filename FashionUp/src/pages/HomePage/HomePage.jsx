@@ -13,7 +13,6 @@ import RatingBar from "../../components/RatingBar";
 import { Link, scroller} from "react-scroll";
 
 function HomePage() {
-  // const [arrivals , setArrivals] = useState([])
 
   const categories = [
     { image: "/src/assets/images/img_jacket.png", label: "Jacket" },
@@ -266,10 +265,7 @@ function HomePage() {
       offset,
     })
   }
-
-
   
-
   return (
     <Fragment to="/">
       {/*Title */}
