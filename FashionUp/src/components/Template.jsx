@@ -1,6 +1,5 @@
 import React from 'react'
-import Text from './Text'
-import Img from './Img'
+import {Text, Img} from '../components/index.js'
 import {warning} from '../assets/index.js'
 
 

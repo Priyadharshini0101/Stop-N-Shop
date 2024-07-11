@@ -1,15 +1,7 @@
 import React, { useState, Suspense, useEffect, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import Text from "../components/Text";
-import Img from "../components/Img";
-import Button from "../components/Button";
-import Input from "../components/Input";
-import Heading from "../components/Heading";
-import Template from "../components/Template";
-import Section from "../components/Section";
-import Feature from "../components/Feature";
+import {About, Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text} from '../components/index.js'
 import { DataProvider } from "../contexts/data";
-import RatingBar from "../components/RatingBar";
 import { Link, scroller} from "react-scroll";
 import {jacket,jacket1,jacket2,jacket3,jacket4,jacket5,jacket6,jacket7,jacket8,arrow,bag,bag1,bag2,broken,collection,collection1,
   creditCard,dress,dress1,dress2,dress3,dress4,dress5,dress6,facebook,header,instagram,logo,pant1,pant2,pant3,pants,scarf1,

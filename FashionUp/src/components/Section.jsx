@@ -1,6 +1,5 @@
 import React from 'react'
-import Heading from './Heading'
-import Text from './Text'
+import {Heading, Text} from '../components/index.js'
 
 function Section({heading,className="",className1=""}) {
   return (

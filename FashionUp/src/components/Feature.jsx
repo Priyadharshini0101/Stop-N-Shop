@@ -1,5 +1,5 @@
 import React,{Suspense, useContext} from 'react'
-import Template1 from "./Template";
+import {Template} from '../components/index.js'
 import useDataContext from '../contexts/data';
 
 function Feature({filter}) {
@@ -11,13 +11,13 @@ function Feature({filter}) {
       <Suspense fallback={<div>Loading feed...</div>}>
         {data.map((i) =>
           i.alt === filter ? (
-            <Template1
+            <Template
               key={i.id}
               image={i.image}
               title={i.label}
               price={i.price}
               className='bg-white-A700 shadow-sm '
-            ></Template1>
+            ></Template>
           ) : (
             ""
           )
