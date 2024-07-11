@@ -11,37 +11,41 @@ import Feature from "../components/Feature";
 import { DataProvider } from "../contexts/data";
 import RatingBar from "../components/RatingBar";
 import { Link, scroller} from "react-scroll";
-import jacket from '../assets/Images/img_jacket.png'
+import {jacket,jacket1,jacket2,jacket3,jacket4,jacket5,jacket6,jacket7,jacket8,arrow,bag,bag1,bag2,brand,broken,collection,collection1,
+  creditCard,dress,dress1,dress2,dress3,dress4,dress5,dress6,facebook,header,instagram,logo,mail,pant1,pant2,pant3,pants,scarf,scarf1,
+search,shipping,shirt,shirt1,shirt2,shirt3,shirt4,shirt5,shirt6,shirt7,shirt8,shoe1,shoe2,shoes,support,twitter,warning,white_arrow,shopping_bag,shopping_cart} 
+from '../assets/index.js'
+
 
 function HomePage() {
 
   const categories = [
     { image: jacket, label: "Jacket" },
-    { image: "/src/assets/Images/img_shirt.png", label: "T-shirt" },
-    { image: "/src/assets/Images/img_pants.png", label: "Pants" },
-    { image: "/src/assets/Images/img_dress.png", label: "Dress" },
-    { image: "/src/assets/Images/img_shoes.png", label: "Shoes" },
-    { image: "/src/assets/Images/img_bag.png", label: "Accesories" },
+    { image: shirt, label: "T-shirt" },
+    { image: pants, label: "Pants" },
+    { image: dress, label: "Dress" },
+    { image: shoes, label: "Shoes" },
+    { image: bag, label: "Accesories" },
   ];
 
   const arrivals = [
     {
-      image: "/src/assets/Images/img_shirt6.jfif",
+      image: shirt6,
       label: "Purple Top",
       price: "$299",
     },
     {
-      image: "/src/assets/Images/img_shirt7.jfif",
+      image: shirt7,
       label: "Black Orange Top",
       price: "$999",
     },
     {
-      image: "/src/assets/Images/img_pant3.jfif",
+      image: pant3,
       label: "Dinosur styled jacket",
       price: "$799",
     },
     {
-      image: "/src/assets/Images/img_bag2.jfif",
+      image: bag2,
       label: "Red Flannel",
       price: "$899",
     },
@@ -49,33 +53,33 @@ function HomePage() {
 
   const popularOfTheWeek = [
     {
-      image: "/src/assets/Images/img_shirt8.jfif",
+      image: shirt8,
       label: "Red Flannel",
       price: "$899",
       rating:4,
 
     },
     {
-      image: "/src/assets/Images/img_dress6.jfif",
+      image: dress6,
       label: "Purple Jacket with pants",
       price: "$699",
       alt: "dress",
       rating:3,
     },
     {
-      image: "/src/assets/Images/img_scarf2.jfif",
+      image: scarf1,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       rating:3,
     },
     {
-      image: "/src/assets/Images/img_jacket6.jfif",
+      image: jacket6,
       label: "Purple Jacket with pants",
       price: "$499",
       rating:5,
     },
     {
-      image: "/src/assets/Images/img_jacket8.png",
+      image: jacket8,
       label: "Purple Jacket with pants",
       price: "$599",
       rating:4,
@@ -84,124 +88,124 @@ function HomePage() {
 
   const dataset = [
     {
-      image: "/src/assets/Images/img_dress1.jfif",
+      image: dress1,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       alt: "dress",
     },
     {
-      image: "/src/assets/Images/img_dress2.jfif",
+      image: dress2,
       label: "Black Warm Jacket",
       price: "$199",
       alt: "dress",
     },
     {
-      image: "/src/assets/Images/img_dress3.jfif",
+      image: dress3,
       label: "Pink Denim Jacket",
       price: "$299",
       alt: "dress",
     },
     {
-      image: "/src/assets/Images/img_dress4.jfif",
+      image: dress4,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "dress",
     },
     {
-      image: "/src/assets/Images/img_dress5.jfif",
+      image: dress5,
       label: "Brown Casual Sneaker",
       price: "$599",
       alt: "dress",
     },
 
     {
-      image: "/src/assets/Images/img_bag1.jfif",
+      image: bag1,
       label: "Purple Jacket with pants",
       price: "$699",
       alt: "pants",
     },
     {
-      image: "/src/assets/Images/img_shoe1.jfif",
+      image: shoe1,
       label: "Blue Denim Jacket",
       price: "$299",
       alt: "pants",
     },
     {
-      image: "/src/assets/Images/img_shoe2.jfif",
+      image: shoe2,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       alt: "pants",
     },
     {
-      image: "/src/assets/Images/img_pant1.jfif",
+      image: pant1,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "pants",
     },
     {
-      image: "/src/assets/Images/img_pant2.jfif",
+      image: pant2,
       label: "Dinosur styled jacket",
       price: "$799",
       alt: "pants",
     },
 
     {
-      image: "/src/assets/Images/img_jacket1.jfif",
+      image: jacket1,
       label: "Black Orange Top",
       price: "$999",
       alt: "jacket",
     },
     {
-      image: "/src/assets/Images/img_jacket2.jfif",
+      image: jacket2,
       label: "Blue Top",
       price: "$599",
       alt: "jacket",
     },
     {
-      image: "/src/assets/Images/img_jacket3.jfif",
+      image: jacket3,
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "jacket",
     },
     {
-      image: "/src/assets/Images/img_jacket4.jfif",
+      image: jacket4,
       label: "Purple Top",
       price: "$299",
       alt: "jacket",
     },
     {
-      image: "/src/assets/Images/img_jacket5.jfif",
+      image: jacket5,
       label: "Purple Jacket with pants",
       price: "$699",
       alt: "jacket",
     },
 
     {
-      image: "/src/assets/Images/img_shirt1.jfif",
+      image: shirt1,
       label: "Brown Casual Sneaker",
       price: "$599",
       alt: "shirt",
     },
     {
-      image: "/src/assets/Images/img_shirt2.jfif",
+      image: shirt2,
       label: "Pattern Top",
       price: "$699",
       alt: "shirt",
     },
     {
-      image: "/src/assets/Images/img_shirt4.jfif",
+      image: shirt4,
       label: "Blue Top",
       price: "$599",
       alt: "shirt",
     },
     {
-      image: "/src/assets/Images/img_shirt5.jfif",
+      image: shirt5,
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "shirt",
     },
     {
-      image: "/src/assets/Images/img_shirt3.jfif",
+      image: shirt3,
       label: "Black Jeans",
       price: "$399",
       alt: "shirt",
@@ -210,7 +214,7 @@ function HomePage() {
 
   const help = [
     {
-      image:"/src/assets/Images/img_shipping.png",
+      image:shipping,
       title:"Free Delivery",
       description:(
         <>
@@ -220,7 +224,7 @@ function HomePage() {
       ),
     },
     {
-      image:"/src/assets/Images/img_credit_card.png",
+      image:creditCard,
       title:"Payment Method",
       description:(
         <>
@@ -230,7 +234,7 @@ function HomePage() {
       ),
     },
     {
-      image:"/src/assets/Images/img_broken.svg",
+      image:broken,
       title:"Warranty",
       description:(
         <>
@@ -240,7 +244,7 @@ function HomePage() {
       ),
     },
     {
-      image:"/src/assets/Images/img_support.svg",
+      image:support,
       title:"Customer Support",
       description:(
         <>
@@ -283,7 +287,7 @@ function HomePage() {
         <header className=" flex items-center justify-center bg-white-A700 pb-[18px] pt-[17px]">
           <div className="container-sm flex items-center justify-between gap-5 lg:p-5 md:flex-col md:p-5">
             <Img
-              src="/src/assets/Images/img_logo2.png"
+              src={logo}
               alt="header logo"
               className="h-[50px] w-[50px] object-contain"
               imgText={
@@ -377,7 +381,7 @@ function HomePage() {
                       {
                         <a href="#">
                           <Img
-                            src="/src/assets/Images/img_white_arrow.png"
+                            src={white_arrow}
                             alt="search icon"
                             className="h-[24px] w-[24px] cursor-pointer "
                           ></Img>
@@ -388,7 +392,7 @@ function HomePage() {
                 />
                 <a href="#" className="flex items-center">
                   <Img
-                    src="/src/assets/Images/shopping_cart.png"
+                    src={shopping_cart}
                     alt="cart icon"
                     className="h-[24px] w-[24px]"
                   ></Img>
@@ -407,7 +411,7 @@ function HomePage() {
           </div>
         </header>
         {/* Banner Section */}
-        <div className=' h-[600px] self-stretch  bg-[url("/src/assets/Images/img_header.jpg")] bg-cover bg-no-repeat'>
+        <div className=' h-[600px] self-stretch  bg-[url(header.jpg")] bg-cover bg-no-repeat'>
           <div className="flex justify-center bg-white-A700_82 py-[157px] lg:py-8 md:py-5 sm:py-4 h-[575px]">
             <div className="container-xs flex pl-[139px] pr-15 lg:p-5 lg:pl-8 md:p-5 md:px-5 sm:px-4">
               <div className="flex w-[47%] flex-col items-start lg:w-full md:w-full">
@@ -434,7 +438,7 @@ function HomePage() {
                   shape="square"
                   rightIcon={
                     <Img
-                      src="/src/assets/Images/img_arrow.png"
+                      src={arrow}
                       alt="arrow"
                       className="h-[48px] w-[48px] p-2"
                     ></Img>
@@ -475,7 +479,7 @@ function HomePage() {
             <div className="flex gap-8 md:flex-col">
               <div className=" flex w-full items-center justify-center gap-6 bg-gray-50 p-7 md:flex-col sm:p-4">
                 <Img
-                  src="/src/assets/Images/img_jacket7.jfif"
+                  src={jacket7}
                   alt="product image"
                   className=" h-[500px] justify-center object-center md:w-full"
                 ></Img>
@@ -539,7 +543,7 @@ function HomePage() {
         {/*Collections */}
         <div name="collections" className="container-md mt-[100px] flex gap-8 lg:p-5 md:flex-col md:p-5">
           <div className="relative h-[400px] w-full lg:h-auto md:h-auto">
-            <Img src="/src/assets/Images/img_collection.jpg" alt="casual image" className="h-[400px] w-full object-cover"></Img>
+            <Img src={collection} alt="casual image" className="h-[400px] w-full object-cover"></Img>
             <Text size="lg" as="p" 
             className="absolute right-[10%] top-[10%] my-auto h-max w-[28%] leading-[54px]md:text-3xl sm:text-[28px]">
               <span className="text-gray-600">
@@ -552,7 +556,7 @@ function HomePage() {
             </Text>
           </div>
           <div className="relative h-[400px] w-full lg:h-auto md:h-auto">
-            <Img src="/src/assets/Images/img_collection1.jpg" alt="casual image" className="h-[400px] w-full object-cover"></Img>
+            <Img src={collection1} alt="casual image" className="h-[400px] w-full object-cover"></Img>
             <Text size="lg" as="p" 
             className="absolute left-[10%] top-[10%] my-auto h-max w-[28%] leading-[54px]md:text-3xl sm:text-[28px]">
               <span className="text-white-A700">
@@ -651,7 +655,7 @@ function HomePage() {
                       {
                         <a href="#">
                           <Img
-                            src="/src/assets/Images/img_arrow.png"
+                            src={arrow}
                             alt="arrow icon"
                             className="h-[24px] w-[24px] cursor-pointer "
                           ></Img>
@@ -829,9 +833,9 @@ function HomePage() {
                         Get in Touch
                       </Heading>
                       <div className="flex w-full justify-center gap-5">
-                        <Img src="/src/assets/Images/img_instagram.png" alt="instagram icon" className="h-[32px] w-[32px]"></Img>
-                        <Img src="/src/assets/Images/img_twitter.png" alt="instagram icon" className="h-[32px] w-[32px]"></Img>
-                        <Img src="/src/assets/Images/img_facebook.png" alt="instagram icon" className="h-[32px] w-[32px]"></Img>
+                        <Img src={instagram} alt="instagram icon" className="h-[32px] w-[32px]"></Img>
+                        <Img src={twitter} alt="instagram icon" className="h-[32px] w-[32px]"></Img>
+                        <Img src={facebook} alt="instagram icon" className="h-[32px] w-[32px]"></Img>
                       
                       </div>
                     </div>
