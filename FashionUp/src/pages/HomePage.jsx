@@ -11,9 +11,9 @@ import Feature from "../components/Feature";
 import { DataProvider } from "../contexts/data";
 import RatingBar from "../components/RatingBar";
 import { Link, scroller} from "react-scroll";
-import {jacket,jacket1,jacket2,jacket3,jacket4,jacket5,jacket6,jacket7,jacket8,arrow,bag,bag1,bag2,brand,broken,collection,collection1,
-  creditCard,dress,dress1,dress2,dress3,dress4,dress5,dress6,facebook,header,instagram,logo,mail,pant1,pant2,pant3,pants,scarf,scarf1,
-search,shipping,shirt,shirt1,shirt2,shirt3,shirt4,shirt5,shirt6,shirt7,shirt8,shoe1,shoe2,shoes,support,twitter,warning,white_arrow,shopping_bag,shopping_cart} 
+import {jacket,jacket1,jacket2,jacket3,jacket4,jacket5,jacket6,jacket7,jacket8,arrow,bag,bag1,bag2,broken,collection,collection1,
+  creditCard,dress,dress1,dress2,dress3,dress4,dress5,dress6,facebook,header,instagram,logo,pant1,pant2,pant3,pants,scarf1,
+shipping,shirt,shirt1,shirt2,shirt3,shirt4,shirt5,shirt6,shirt7,shirt8,shoe1,shoe2,shoes,support,twitter,white_arrow,shopping_cart} 
 from '../assets/index.js'
 
 
@@ -411,7 +411,7 @@ function HomePage() {
           </div>
         </header>
         {/* Banner Section */}
-        <div className=' h-[600px] self-stretch  bg-[url(header.jpg")] bg-cover bg-no-repeat'>
+        <div className={`h-[600px] self-stretch  bg-[url(\'${header}\')] bg-cover bg-no-repeat`}>
           <div className="flex justify-center bg-white-A700_82 py-[157px] lg:py-8 md:py-5 sm:py-4 h-[575px]">
             <div className="container-xs flex pl-[139px] pr-15 lg:p-5 lg:pl-8 md:p-5 md:px-5 sm:px-4">
               <div className="flex w-[47%] flex-col items-start lg:w-full md:w-full">
