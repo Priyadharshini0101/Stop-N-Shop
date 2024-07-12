@@ -7,7 +7,7 @@ const shapes = {
 const sizes = {
   "6xl" : "h-[64px] px-[35px] text-lg",
   "4xl" : "h-[60px] px-2.5",
-  xl : "h-[53px] px-[34px] text-sm",
+  xl : "h-[50px] text-sm",
   "2xl" : "h-[56px] p-2.5 text-2xl",
   xs : "h-[24px] px-[5px]",
   "3xl" : "h-[60px] px-[33px] text-2xl",

@@ -35,3 +35,30 @@ a{
     @apply w-full mx-auto max-w-[1433px];
   }
 }
+
+
+.btn-prev{
+
+ text-align: left;
+position: relative;
+bottom:250px;
+  color: #9f9f9f;
+  font-size: 50px;
+  cursor: pointer;
+  z-index: 2;
+ 
+ 
+}
+.btn-next{
+  
+
+ position: relative;
+ bottom:250px;
+   color: #9f9f9f;
+   font-size: 50px;
+   cursor: pointer;
+   z-index: 2;
+
+  text-align: right;
+
+}

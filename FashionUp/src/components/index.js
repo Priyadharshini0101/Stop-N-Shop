@@ -8,5 +8,6 @@ import RatingBar from './RatingBar.jsx'
 import Section from './Section.jsx'
 import Template from './Template.jsx'
 import Text from './Text.jsx'
+import Slider from './Slider.jsx'
 
-export {About, Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text} 
+export {About, Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text,Slider} 
