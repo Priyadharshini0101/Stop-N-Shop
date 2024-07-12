@@ -1,7 +1,7 @@
 import React, { useState, Suspense, useEffect, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import {About, Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text} from '../components/index.js'
-import { DataProvider } from "../contexts/data";
+import  {  NavLink } from "react-router-dom";
+import { Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text} from '../components/index.js'
 import { Link, scroller} from "react-scroll";
 import {jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,jacket11,jacket12,
   jacket13,jacket14,jacket15,jacket16,arrow,bag,bag1,bag2,broken,collection,collection1,creditCard,dress,dress1,dress2,
@@ -9,7 +9,8 @@ import {jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,
   pant2,pant3,pants,scarf1,scarf2,shipping,shirt,shirt2,shirt3,shirt5,shirt6,shirt7,shirt8,shirt10,shirt9,
   shirt11,shirt12,shirt13,shirt14,shirt15,shirt16,shirt17,shoe1,shoe2,shoe3,shoe4,shoes,support,twitter,white_search,
   shopping_cart,pant4,pant5,pant6,pant7,pant8} from '../assets/index.js'
-
+import Header from "./Header.jsx";
+import useDataContext from "../contexts/data.js";
 
 function HomePage() {
 
@@ -24,21 +25,25 @@ function HomePage() {
 
   const arrivals = [
     {
+      id:49,
       image: shirt6,
       label: "Purple Top",
       price: "$299",
     },
     {
+      id:50,
       image: shirt7,
       label: "Black Orange Top",
       price: "$999",
     },
     {
+      id:51,
       image: pant3,
       label: "Dinosur styled jacket",
       price: "$799",
     },
     {
+      id:52,
       image: bag2,
       label: "Red Flannel",
       price: "$899",
@@ -47,6 +52,7 @@ function HomePage() {
 
   const popularOfTheWeek = [
     {
+      id:53,
       image: shirt8,
       label: "Red Flannel",
       price: "$899",
@@ -54,6 +60,7 @@ function HomePage() {
 
     },
     {
+      id:54,
       image: dress6,
       label: "Purple Jacket with pants",
       price: "$699",
@@ -61,18 +68,21 @@ function HomePage() {
       rating:3,
     },
     {
+      id:55,
       image: scarf1,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       rating:3,
     },
     {
+      id:56,
       image: jacket6,
       label: "Purple Jacket with pants",
       price: "$499",
       rating:5,
     },
     {
+      id:57,
       image: jacket8,
       label: "Purple Jacket with pants",
       price: "$599",
@@ -80,386 +90,7 @@ function HomePage() {
     },
   ];
 
-  const dataset = [
-   
-    {
-      id:1,
-      image: dress1,
-      label: "Blue Grey Warm Jacket",
-      price: "$399",
-      alt: "dress",
-    },
-    {
-      id:2,
-      image: dress2,
-      label: "Black Warm Jacket",
-      price: "$199",
-      alt: "dress",
-    },
-    {
-      id:3,
-      image: dress3,
-      label: "Pink Denim Jacket",
-      price: "$299",
-      alt: "dress",
-    },
-    {
-      id:4,
-      image: dress4,
-      label: "Light Green Denim Jacket",
-      price: "$499",
-      alt: "dress",
-    },
-    {
-      id:5,
-      image: dress5,
-      label: "Brown Casual Sneaker",
-      price: "$599",
-      alt: "dress",
-    },
-    {
-      id:6,
-      image: dress9,
-      label: "Blue Grey Warm Jacket",
-      price: "$399",
-      alt: "dress",
-    },
-    {
-      id:7,
-      image: dress11,
-      label: "Blue Grey Warm Jacket",
-      price: "$399",
-      alt: "dress",
-    },
-    {
-      id:8,
-      image: dress13,
-      label: "Black Warm Jacket",
-      price: "$199",
-      alt: "dress",
-    },
-    {
-      id:9,
-      image: dress14,
-      label: "Pink Denim Jacket",
-      price: "$299",
-      alt: "dress",
-    },
-    {
-      id:10,
-      image: dress7,
-      label: "Light Green Denim Jacket",
-      price: "$499",
-      alt: "dress",
-    },
-    {
-      id:11,
-      image: dress8,
-      label: "Brown Casual Sneaker",
-      price: "$599",
-      alt: "dress",
-    },
-    {
-      id:12,
-      image: bag1,
-      label: "Purple Jacket with pants",
-      price: "$699",
-      alt: "pants",
-    },
-    {
-      id:13,
-      image: shoe1,
-      label: "Blue Denim Jacket",
-      price: "$299",
-      alt: "pants",
-    },
-    {
-      id:14,
-      image: shoe2,
-      label: "Blue Grey Warm Jacket",
-      price: "$399",
-      alt: "pants",
-    },
-    {
-      id:15,
-      image: pant1,
-      label: "Light Green Denim Jacket",
-      price: "$499",
-      alt: "pants",
-    },
-    {
-      id:16,
-      image: pant2,
-      label: "Dinosur styled jacket",
-      price: "$799",
-      alt: "pants",
-    },
-   
-   
-   
-   
-    {
-      id:17,
-      image: shoe3,
-      label: "Blue Grey Warm Jacket",
-      price: "$399",
-      alt: "pants",
-    },
-    {
-      id:18,
-      image: shoe4,
-      label: "Light Green Denim Jacket",
-      price: "$499",
-      alt: "pants",
-    },
-    {
-      id:19,
-      image: scarf2,
-      label: "Dinosur styled jacket",
-      price: "$799",
-      alt: "pants",
-    },
-   
-    {
-      id:20,
-      image: pant3,
-      label: "Light Green Denim Jacket",
-      price: "$499",
-      alt: "pants",
-    },
-    {
-      id:21,
-      image: pant4,
-      label: "Dinosur styled jacket",
-      price: "$799",
-      alt: "pants",
-    },
-    {
-      id:22,
-      image: pant5,
-      label: "Light Green Denim Jacket",
-      price: "$499",
-      alt: "pants",
-    },
-    {
-      id:23,
-      image: pant6,
-      label: "Dinosur styled jacket",
-      price: "$799",
-      alt: "pants",
-    },
-    {
-      id:24,
-      image: pant7,
-      label: "Light Green Denim Jacket",
-      price: "$499",
-      alt: "pants",
-    },
-    {
-      id:25,
-      image: pant8,
-      label: "Dinosur styled jacket",
-      price: "$799",
-      alt: "pants",
-    },
-   
-     
-   
-
-    {
-      id:26,
-      image: jacket1,
-      label: "Black Orange Top",
-      price: "$999",
-      alt: "jacket",
-    },
-   
-    {
-      id:27,
-      image: jacket3,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "jacket",
-    },
-    {
-      id:28,
-      image: jacket4,
-      label: "Purple Top",
-      price: "$299",
-      alt: "jacket",
-    },
-   
-
-  
-    
-
-    {
-      id:29,
-      image: jacket9,
-      label: "Black Orange Top",
-      price: "$999",
-      alt: "jacket",
-    },
-   
-    {
-      id:30,
-      image: jacket10,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "jacket",
-    },
-    {
-      id:31,
-      image: jacket11,
-      label: "Purple Top",
-      price: "$299",
-      alt: "jacket",
-    },
-    
-    {
-      id:32,
-      image: jacket12,
-      label: "Black Orange Top",
-      price: "$999",
-      alt: "jacket",
-    },
-   
-    {
-      id:33,
-      image: jacket13,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "jacket",
-    },
-    {
-      id:34,
-      image: jacket14,
-      label: "Purple Top",
-      price: "$299",
-      alt: "jacket",
-    },
-    
-    {
-      id:35,
-      image: jacket15,
-      label: "Black Orange Top",
-      price: "$999",
-      alt: "jacket",
-    },
-   
-    {
-      id:36,
-      image: jacket16,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "jacket",
-    },
  
-   
-
-  
-   
-
-    
-    {
-      id:37,
-      image: shirt2,
-      label: "Pattern Top",
-      price: "$699",
-      alt: "shirt",
-    },
-   
-
-    {
-      id:38,
-      image: shirt5,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "shirt",
-    },
-    {
-      id:39,
-      image: shirt3,
-      label: "Black Jeans",
-      price: "$399",
-      alt: "shirt",
-    },
-    
-    {
-      id:40,
-      image: shirt10,
-      label: "Pattern Top",
-      price: "$699",
-      alt: "shirt",
-    },
-   
-
-    {
-      id:41,
-      image: shirt9,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "shirt",
-    },
-    {
-      id:42,
-      image: shirt11,
-      label: "Black Jeans",
-      price: "$399",
-      alt: "shirt",
-    },
-
-    {
-      id:43,
-      image: shirt12,
-      label: "Pattern Top",
-      price: "$699",
-      alt: "shirt",
-    },
-   
-
-    {
-      id:44,
-      image: shirt13,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "shirt",
-    },
-    {
-      id:45,
-      image: shirt14,
-      label: "Black Jeans",
-      price: "$399",
-      alt: "shirt",
-    },
-    {
-      id:46,
-      image: shirt15,
-      label: "Pattern Top",
-      price: "$699",
-      alt: "shirt",
-    },
-   
-
-    {
-      id:47,
-      image: shirt16,
-      label: "Casual Pink Shirt",
-      price: "$499",
-      alt: "shirt",
-    },
-    {
-      id:48,
-      image: shirt17,
-      label: "Black Jeans",
-      price: "$399",
-      alt: "shirt",
-    },
-
-  
-    
-  
-  ];
 
   const help = [
     {
@@ -503,24 +134,11 @@ function HomePage() {
       ),
     },
   ]
+  const {data,setheader} = useDataContext();
+  setheader(false);
 
-  const [data, setData] = useState([]);
-  const [searchBarValue, setSearchBarValue] = useState("");
-
-  useEffect(() =>{
-    setData(dataset)
-  },[])
-
-  const scrollTo = (offset) =>{
-    scroller.scrollTo('scroll-to-div',{
-      duration:800,
-      delay:0,
-      smooth:'easeInOutQuart',
-      offset,
-    })
-  }
-  
   return (
+  
     <Fragment to="/">
       {/*Title */}
       <Helmet>
@@ -531,134 +149,10 @@ function HomePage() {
         Shop jackets, dresses, accessories, and more, Don't miss out on our new arrivals and featured items!"
         ></meta>
       </Helmet>
+    
       {/*Header section */}
+      
       <div className=" w-full bg-white-A700">
-        <header className=" flex items-center justify-center bg-white-A700 pb-[18px] pt-[17px]">
-          <div className="container-sm flex items-center justify-between gap-5 lg:p-5 md:flex-col md:p-5">
-            <Img
-              src={logo}
-              alt="header logo"
-              className="h-[50px] w-[50px] object-contain"
-              imgText={
-                <Text size="s"  className="!font-bold  !text-gray-800">
-                 Fashion Up
-                </Text>
-              } 
-            ></Img>
-            
-           
-            <ul className="flex flex-wrap gap-20 lg:gap-5 md:gap-5" onScroll={true}>
-              <li><Link
-              //  activeClass="gray-800"
-              // className="categories"
-              to="categories"
-              offset={-25}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-              >
-                <a href="#" target="_blank">
-                  <Text as="p" className="!font-medium !text-gray-800">
-                    Categories
-                  </Text>
-                </a>
-              </Link>
-              </li>
-              <li>
-              <Link
-              //  activeClass="gray-800"
-              // className="categories"
-              to="new-arrivals"
-              offset={-25}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-              >
-                <a href="#">
-                  <Text as="p" className="!font-medium !text-gray-800">
-                    New Arrivals
-                  </Text>
-                </a>
-                </Link>
-              </li>
-             <li>
-             <Link
-              //  activeClass="gray-800"
-              // className="categories"
-              to="features"
-              offset={-25}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-              > 
-                <a href="#">
-                  <Text as="p" className="!font-medium !text-gray-800">
-                    Features
-                  </Text>
-                </a>
-                </Link>
-              </li>
-              <li> 
-              <Link
-              //  activeClass="gray-800"
-              // className="categories"
-              to="collections"
-              offset={-25}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-              >
-                <a href="#">
-                  <Text as="p" className="!font-medium !text-gray-800">
-                    Collections
-                  </Text>
-                </a>
-                </Link>
-              </li>
-            </ul>
-            <div className="flex w-[35%] items-center justify-between gap-5 md:w-full">
-              <div className="flex w-[%33] justify-between gap-5">
-                <Input
-                  name="Search Field"
-                  placeholder={`Search here`}
-                  value={searchBarValue}
-                  onChange={setSearchBarValue}
-                
-                  variant="outline"
-                  suffix={
-                    <div className="flex h-[48px] w-[48px] items-center justify-center">
-                      {
-                        <a href="#">
-                          <Img
-                            src={white_search}
-                            alt="search icon"
-                            className="h-[24px] w-[24px] cursor-pointer "
-                          ></Img>
-                        </a>
-                      }
-                    </div>
-                  }
-                />
-                <a href="#" className="flex items-center">
-                  <Img
-                    src={shopping_cart}
-                    alt="cart icon"
-                    className="h-[24px] w-[24px]"
-                  ></Img>
-                </a>
-              </div>
-              <a href="#">
-                <Button
-                  className="min-w-[107px] font-bold lg:text-[15px] sm:px-4 text-white-A700"
-                  size="5xl"
-                  shape="square"
-                >
-                  Login
-                </Button>
-              </a>
-            </div>
-          </div>
-        </header>
         {/* Banner Section */}
         <div className={`h-[600px] self-stretch  bg-[url('/src/assets/Images/img_header.jpg')] bg-cover bg-no-repeat`}>
           <div className="flex justify-center bg-white-A700_82 py-[157px] lg:py-8 md:py-5 sm:py-4 h-[575px]">
@@ -727,11 +221,13 @@ function HomePage() {
           <Section heading="New Arrivals"></Section>
             <div className="flex gap-8 md:flex-col">
               <div className=" flex w-full items-center justify-center gap-6 bg-gray-50 p-7 md:flex-col sm:p-4">
-                <Img
+              <NavLink to="/product">
+              <Img
                   src={jacket7}
                   alt="product image"
                   className=" h-[500px] justify-center object-center md:w-full"
                 ></Img>
+                </NavLink>
                 <div className="flex w-[40%] flex-col items-center gap-6">
                   <div className="flex flex-col items-center gap-[5px]">
                     <Text size="md" as="p" className="!text-gray-800">
@@ -756,9 +252,7 @@ function HomePage() {
                     <>
                       <Template
                         key={d.id}
-                        image={d.image}
-                        title={d.title}
-                        price={d.price}
+                 data={d}
                         size="s"
                         className="bg-gray-50 shadow-sm w-full"
                         addToCart={ <Button size="5xl" shape="square" className='min-w-[100px] font-bold lg:text-[15px] sm:px-4'>
@@ -773,7 +267,7 @@ function HomePage() {
           </div>
         </div>
         {/*Features */}
-        <DataProvider value={{data}}>
+
         <div name="features" className="container-xs mt-[99px] h-[426px] lg:h-auto lg:p-5 md:h-auto md:p-5">
          <Section heading="Features"></Section>           
            <Feature filter="dress"></Feature>
@@ -788,7 +282,7 @@ function HomePage() {
         <div className="container-xs mt-[99px] h-[426px] lg:h-auto lg:p-5 md:h-auto md:p-5">
             <Feature filter="pants"></Feature>
         </div>
-        </DataProvider>
+     
         {/*Collections */}
         <div name="collections" className="container-md mt-[100px] flex gap-8 lg:p-5 md:flex-col md:p-5">
           <div className="relative h-[400px] w-full lg:h-auto md:h-auto">
@@ -856,9 +350,7 @@ function HomePage() {
           <>
             <Template
               key={i.id}
-              image={i.image}
-              title={i.label}
-              price={i.price}
+              data={i}
               className=" w-full"
               addToCart={ <Button size="xl" shape="square" className='min-w-[100px] font-bold lg:text-[15px] sm:px-4'>
                 Add to cart
@@ -882,230 +374,10 @@ function HomePage() {
     </div>
   
         </div>
-          {/*Footer Section*/} 
-          <footer className="mt-[100px] flex items-center justify-center bg-gray-800 pb-[30px] pt-[62px] lg:pt-8 md:pt-5 sm:py-4">
-            <div className="container-xs flex justify-center pr-[90px] lg:p-5 lg:pr-8 md:p-5 md:pr-5 sm:pr-4">
-              <div className="flex w-full flex-col items-center gap-[82px] lg:gap-[82px] md:gap-[61px] sm:gap-[41px]">
-                <div className="flex items-start justify-between gap-5 self-stretch md:flex-col">
-                 <div className="flex w-[28%] flex-col items-start gap-[30px] md:w-full">
-                  <Heading size="s" as="h4" className="!text-white-A700">
-                    Join our Newsletter
-                  </Heading>
-                  <Text as="p" className="w-full leading-[27px] !text-white-A700">
-                    <>
-                    Drop your email below to get update about us, <br/>
-                    latest news, tips, and more!</>
-                  </Text>
-                  <Input
-                  
-                   
-                  shape="square"
-                  type="email"
-                  name="Email Input"
-                  placeholder={`Enter your email`}
-                  color="white_A700"
-                  suffix={
-                    <div className="flex h-[48px] w-[48px] items-center justify-center">
-                      {
-                        <a href="#">
-                          <Img
-                            src={arrow}
-                            alt="arrow icon"
-                            className="h-[24px] w-[24px] cursor-pointer "
-                          ></Img>
-                        </a>
-                      }
-                    </div>
-                  }
-                 
-                 className="w-[90%] gap-[8px] tracking-[0.36px] text-gray-500_7f sm:pl-4"
-                >
-                  </Input>
-                 </div>
-                 <div className="flex w-[46%] items-start justify-between gap-5 md:w-full md:flex-col">
-                  <div className="flex flex-col gap-[21px]">
-                    <Heading size="s" as="h4" className="!text-white-A700">
-                      Product Links
-                    </Heading>
-                    <ul className="flex flex-col gap-[9px]">
-                      <li>
-                      <Link to="categories" 
-                //  activeClass="gray-800"
-              // className="categories"
-            
-              // spy={true}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-                offset={-25}
-              >
-                        <a href="#">
-                          <Text as="p" size="s" className="!text-white-A700">
-                            Categories
-                          </Text>
-                        </a>
-                        </Link>
-                      </li>
-                      <li>
-                      <Link to="new-arrivals" 
-                //  activeClass="gray-800"
-              // className="categories"
-            
-              // spy={true}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-                offset={-25}
-              >
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            New Arrivals
-                          </Text>
-                        </a>
-              </Link>
-                      </li>
-                      <li>
-                      <Link to="features" 
-                //  activeClass="gray-800"
-              // className="categories"
-            
-              // spy={true}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-                offset={-25}
-              >
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Features
-                          </Text>
-                        </a>
-                        </Link>
-                      </li>
-                      <li>
-                      <Link to="collections" 
-                //  activeClass="gray-800"
-              // className="categories"
-            
-              // spy={true}
-              smooth={true}
-              duration={500}
-              onClick={scrollTo(100)}
-                offset={-25}
-              >
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Collections
-                          </Text>
-                        </a>
-                  </Link>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="flex flex-col gap-[21px]">
-                    <Heading size="s" as="h4" className="!text-white-A700">
-                      Company
-                    </Heading>
-                    <ul className="flex flex-col gap-[9px]">
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            About
-                          </Text>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Blog
-                          </Text>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Careers
-                          </Text>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Contact
-                          </Text>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Services
-                          </Text>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="flex flex-col gap-[21px]">
-                    <Heading size="s" as="h4" className="!text-white-A700">
-                      Support
-                    </Heading>
-                    <ul className="flex flex-col gap-[9px]">
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Support Center
-                          </Text>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            FAQ
-                          </Text>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Privacy Policy
-                          </Text>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <Text as="p" className="!text-white-A700">
-                            Terms of service
-                          </Text>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                 </div>
-                 <a href="#">
-                  <div className="flex justify-center md:w-full">
-                    <div className="flex w-full flex-col items-start gap-6">
-                      <Heading size="s" as="h4" className="!text-white-A700 w-[150px]">
-                        Get in Touch
-                      </Heading>
-                      <div className="flex w-full justify-center gap-5">
-                        <Img src={instagram} alt="instagram icon" className="h-[32px] w-[32px]"></Img>
-                        <Img src={twitter} alt="instagram icon" className="h-[32px] w-[32px]"></Img>
-                        <Img src={facebook} alt="instagram icon" className="h-[32px] w-[32px]"></Img>
-                      
-                      </div>
-                    </div>
-                  </div>
-                 </a>
-                </div>
-                <Text size="xs" as="p" className="!text-white-A700">
-                  Copyright &#169; 2021 Elliye. All Right Reserved
-                </Text>
-
-              </div>
-              </div>
-              </footer> 
-              <hr></hr>
+       
       </div>
     </Fragment>
+  
   );
 }
 

@@ -16,14 +16,15 @@ function Feature({filter}) {
 
   return (
     <div className="m-auto  flex flex-col h-max w-full  md:flex-col">
-   <div className="absolute z-0 h-[426px] w-[22%] bg-gray-800"></div>
+   <div className="absolute mt-[50px] z-0 h-[426px] w-[22%] bg-gray-800"></div>
     
-    <div className="z-10 ml-[50px] mt-[50px] flex gap-[10px] md:ml-0 md:flex-col md:self-stretch">
+    <div className="z-10 ml-[50px] mt-[90px] flex gap-[10px] md:ml-[50px] md:flex-col md:self-stretch ">
    
      <AliceCarousel
     responsive={
       { 0: { items: 1 },
       568: { items: 2 },
+      768:{items:3},
       1024: { items: 5},
     }
     }
@@ -45,9 +46,7 @@ function Feature({filter}) {
     sliderItems.map((i, index) => (
           <Template
      key={i.id}
-     image={i.image}
-     title={i.label}
-     price={i.price}
+     data={i}
      className='bg-white-A700 shadow-sm w-[250px]'
    ></Template>
    ))

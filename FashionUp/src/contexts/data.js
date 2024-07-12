@@ -1,7 +1,11 @@
 import { createContext , useContext } from 'react'
 
+
 export const DataContext = createContext({
-   data:[]
+   data:[],
+   scroll: () => {},
+   header:false,
+   setheader:() => {},
 })
 
 export const DataProvider = DataContext.Provider;
