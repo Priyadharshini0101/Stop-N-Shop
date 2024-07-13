@@ -6,6 +6,8 @@ export const DataContext = createContext({
    scroll: () => {},
    header:false,
    setheader:() => {},
+   addToCart:[],
+   setaddtocart:() => {},
 })
 
 export const DataProvider = DataContext.Provider;

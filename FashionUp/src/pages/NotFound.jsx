@@ -2,7 +2,7 @@ import React from 'react'
 import { Text } from '../components/index.js'
 import useDataContext from '../contexts/data.js';
 function NotFound() {
-  const {data,setheader} = useDataContext();
+  const {setheader} = useDataContext();
   setheader(true);
   return (
     <div className='w-full h-[150px]  flex items-center justify-center'>

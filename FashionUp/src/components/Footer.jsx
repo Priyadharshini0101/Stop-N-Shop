@@ -6,7 +6,7 @@ import {arrow,facebook,instagram,twitter} from '../assets/index.js'
 import useDataContext from '../contexts/data.js';
 
 function Footer() {
-    const {data,scroll,header} = useDataContext()
+    const {scroll,header} = useDataContext()
 
   return (
     <>
@@ -50,7 +50,8 @@ function Footer() {
                 >
                   </Input>
                  </div>
-                 <div className="flex w-[32%] items-start justify-between gap-5 md:w-full md:flex-col">
+                 <div className={`flex  items-start justify-between gap-5 md:w-full md:flex-col
+                  ${header ? `w-[32%]`: `w-[42%]`}`}>
                 { !header ? (<div className="flex flex-col gap-[21px]">
                     <Heading size="s" as="h4" className="!text-white-A700">
                       Product Links
@@ -60,8 +61,6 @@ function Footer() {
                       <Link to="categories" 
                 //  activeClass="gray-800"
               // className="categories"
-            
-              // spy={true}
               smooth={true}
               duration={500}
               onClick={scroll(100)}
@@ -78,8 +77,6 @@ function Footer() {
                       <Link to="new-arrivals" 
                 //  activeClass="gray-800"
               // className="categories"
-            
-              // spy={true}
               smooth={true}
               duration={500}
               onClick={scroll(100)}
@@ -96,8 +93,6 @@ function Footer() {
                       <Link to="features" 
                 //  activeClass="gray-800"
               // className="categories"
-            
-              // spy={true}
               smooth={true}
               duration={500}
               onClick={scroll(100)}
@@ -114,8 +109,6 @@ function Footer() {
                       <Link to="collections" 
                 //  activeClass="gray-800"
               // className="categories"
-            
-              // spy={true}
               smooth={true}
               duration={500}
               onClick={scroll(100)}
@@ -225,7 +218,7 @@ function Footer() {
                  </a>
                 </div>
                 <Text size="xs" as="p" className="!text-white-A700">
-                  Copyright &#169; 2021 Elliye. All Right Reserved
+                  Copyright &#169; 2021 Fashion Up. All Right Reserved
                 </Text>
 
               </div>

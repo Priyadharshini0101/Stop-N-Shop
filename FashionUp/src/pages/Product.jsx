@@ -1,24 +1,32 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { Text,Section, Feature,Heading,Img,Button,RatingBar } from '../components/index';
 import useDataContext from '../contexts/data';
 import { Helmet } from 'react-helmet';
-import { shopping_cart, shopping_cart_white } from '../assets';
+import { shopping_cart_white } from '../assets';
 
 function Product() {
-  const { id } = useParams();
+  const { page,id } = useParams();
 
-  const {data,setheader} = useDataContext();
+  const {data,setheader,addToCart,setaddtocart} = useDataContext();
    setheader(true);
   const product = data.filter((d) => (d.id === id))
   
-  const {image,label,price,alt,rating} = product['0']
-  console.log(product)
-
+  const {image,label,price,alt,rating,quantity} = product['0']
+  
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
- 
+    setToCart(quantity)
+  }, [id])
+  const [toCart, setToCart] = useState(quantity)
+  const addQuantity = () =>{
+    setToCart((add) => add + 1);
+   
+  }
+  const substractQuantity= () =>{
+    setToCart((sub) => sub - 1);
+  }
+
 
   return (
     <>
@@ -34,8 +42,8 @@ function Product() {
             <div className='flex flex-col gap-[29px] self-stretch'>
               <div className='flex px-[3%] flex-wrap gap-4'>
                 <Text as="p" className='self-start !font-medium'>
-                  Featured
-                </Text>
+                {page}
+                 </Text>
                 <Text as="p" className='self-start !font-medium !text-blue-gray-100'>
                   &gt;
                 </Text>
@@ -82,17 +90,20 @@ function Product() {
                     <Button
                     size="sm"
                     shape="square"
+                     onClick={addQuantity}
                     className=" w-full mr-2.5 font-medium lg:text-[15px] sm:px-4">
                     +
-
+               
                     </Button>
                     <input     
-                    value={10}
-                    className=" rounded-[0px] text-gray-800 px-2.5 text-lg border-gray-800 border border-solid border-[1px] w-[48px] h-[32px] "
+                    value={toCart}
+                    onChange={(e) => setToCart(Number(e.target.value))}
+                    className=" rounded-[0px] text-gray-800 px-2 text-lg border-gray-800 border border-solid border-[1px] w-[48px] h-[32px] "
                   ></input>
                                     
                     
                     <Button
+                    onClick={substractQuantity}
                     size="sm"
                     shape="square"
                     className=" w-full ml-2.5 font-medium lg:text-[15px] sm:px-4">
@@ -106,8 +117,9 @@ function Product() {
                     shape="square"
                     rightIcon={<Img
                     src={shopping_cart_white} alt="cart" className='h-[32px] w-[32px]'></Img>}
-                    className='min-w-[245px] gap-5 font-bold lg:text-[15px] sm:px-4'>
-                      Add to Cart
+                    className='min-w-[245px] gap-5 px-5 font-bold lg:text-[15px] sm:px-4'
+                    onClick={() => {product['0'].quantity = toCart, setaddtocart(product['0'])}}>
+                    {addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  'Add to Cart':'Remove from Cart'}  
                     </Button>
               </div>
               </div>

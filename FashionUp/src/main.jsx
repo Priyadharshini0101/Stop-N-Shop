@@ -13,11 +13,11 @@ const router = createBrowserRouter(
         <Route path="/" element={<Layout></Layout>}>
         <Route path='' element={<HomePage></HomePage>}></Route>
       <Route path='cart' element={<Cart/>}/>
-      {/* <Route path='contact' element={<Contact/>}/> */}
       <Route path='product/' element={<Product></Product>}>
+      <Route path=":page" element={<Product></Product>}>
       <Route path=':id' element={<Product/>}/>
       </Route>
-      {/* <Route loader={githubInfoLoader} path="github" element={<Github/>}></Route> */}
+      </Route>
       <Route path="*" element={<NotFound></NotFound>}></Route>
         </Route>
     )

@@ -1,17 +1,14 @@
-import React, { useState, Suspense, useEffect, Fragment } from "react";
+import React, { Suspense} from "react";
 import { Helmet } from "react-helmet";
 import  {  NavLink } from "react-router-dom";
-import { Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text,Header} from '../components/index.js'
-import { Link, scroller} from "react-scroll";
-import {jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,jacket11,jacket12,
-  jacket13,jacket14,jacket15,jacket16,arrow,bag,bag1,bag2,broken,collection,collection1,creditCard,dress,dress1,dress2,
-  dress3,dress4,dress5,dress6,dress11,dress13,dress14,dress7,dress8,dress9,facebook,instagram,logo,pant1,
-  pant2,pant3,pants,scarf1,scarf2,shipping,shirt,shirt2,shirt3,shirt5,shirt6,shirt7,shirt8,shirt10,shirt9,
-  shirt11,shirt12,shirt13,shirt14,shirt15,shirt16,shirt17,shoe1,shoe2,shoe3,shoe4,shoes,support,twitter,white_search,
-  shopping_cart,pant4,pant5,pant6,pant7,pant8} from '../assets/index.js'
+import { Button, Feature,Heading,Img,RatingBar,Section,Template,Text} from '../components/index.js'
+import {jacket,jacket7,
+  arrow,bag,broken,collection,collection1,creditCard,dress,
+  pants,shipping,shirt,shoes,support} from '../assets/index.js'
 import useDataContext from "../contexts/data.js";
 
 function HomePage() {
+  const {data} = useDataContext()
 
   const categories = [
     { image: jacket, label: "Jacket" },
@@ -21,76 +18,6 @@ function HomePage() {
     { image: shoes, label: "Shoes" },
     { image: bag, label: "Accesories" },
   ];
-
-  const arrivals = [
-    {
-      id:49,
-      image: shirt6,
-      label: "Purple Top",
-      price: "$299",
-    },
-    {
-      id:50,
-      image: shirt7,
-      label: "Black Orange Top",
-      price: "$999",
-    },
-    {
-      id:51,
-      image: pant3,
-      label: "Dinosur styled jacket",
-      price: "$799",
-    },
-    {
-      id:52,
-      image: bag2,
-      label: "Red Flannel",
-      price: "$899",
-    },
-  ];
-
-  const popularOfTheWeek = [
-    {
-      id:53,
-      image: shirt8,
-      label: "Red Flannel",
-      price: "$899",
-      rating:4,
-
-    },
-    {
-      id:54,
-      image: dress6,
-      label: "Purple Jacket with pants",
-      price: "$699",
-      alt: "dress",
-      rating:3,
-    },
-    {
-      id:55,
-      image: scarf1,
-      label: "Blue Grey Warm Jacket",
-      price: "$399",
-      rating:3,
-    },
-    {
-      id:56,
-      image: jacket6,
-      label: "Purple Jacket with pants",
-      price: "$499",
-      rating:5,
-    },
-    {
-      id:57,
-      image: jacket8,
-      label: "Purple Jacket with pants",
-      price: "$599",
-      rating:4,
-    },
-  ];
-
- 
-
   const help = [
     {
       image:shipping,
@@ -133,8 +60,11 @@ function HomePage() {
       ),
     },
   ]
-  const {data,setheader} = useDataContext();
+
+  const {setheader} = useDataContext();
   setheader(false);
+
+
 
   return (
   
@@ -217,17 +147,18 @@ function HomePage() {
         <div name="new-arrivals" className="container-sm mt-[98px] flex lg:p-5 md:p-5">
           <div className="flex w-full flex-col gap-[33px]">
           <Section heading="New Arrivals"></Section>
-            <div className="flex gap-8 md:flex-col">
-              <div className=" flex w-full items-center justify-center gap-6 bg-gray-50 p-7 md:flex-col sm:p-4">
-              <NavLink to={`/product/${58}`}>
+            <div className="flex gap-8 md:flex-col" >
+              <div className=" flex w-full items-center justify-center gap-6 bg-gray-50 p-7 md:flex-col sm:p-4"  >
+              <NavLink to={`/product/New Arrivals/${58}`} >
               <Img
                   src={jacket7}
                   alt="product image"
                   className=" h-[500px] justify-center object-center md:w-full"
+                  
                 ></Img>
                 </NavLink>
                 <div className="flex w-[40%] flex-col items-center gap-6">
-                  <div className="flex flex-col items-center gap-[5px]">
+                  <div className="flex flex-col items-center gap-[5px]"   > 
                     <Text size="md" as="p" className="!text-gray-800">
                       Purple Warm Jacket
                     </Text>
@@ -235,30 +166,37 @@ function HomePage() {
                       $299
                     </Text>
                   </div>
-                  <Button
+                  <NavLink to={`/product/New Arrivals/${58}`}><Button
+                  
                     size="5xl"
                     shape="square"
                     className="min-w-[100px] font-bold lg:text-[15px] sm:px-4"
                   >
                     Add to cart
                   </Button>
+                  </NavLink>
                 </div>
               </div>
-              <div className="grid w-full grid-cols-2 gap-8 lg:grid-cols-2 md:grid-cols-1">
+              <div className="grid w-full grid-cols-2 gap-8 lg:grid-cols-2 md:grid-cols-1"  >
                 <Suspense fallback={<div>Loading feed...</div>}>
-                  {arrivals.map((d) => (
+                  {data.map((d) => (d.newArrivals === true)?(
                     <>
                       <Template
+                   page="New Arrivals"
                         key={d.id}
                  data={d}
+                 
                         size="s"
                         className="bg-gray-50 shadow-sm w-full"
-                        addToCart={ <Button size="5xl" shape="square" className='min-w-[100px] font-bold lg:text-[15px] sm:px-4'>
+                        addToCart={ 
+                          <NavLink to={`/product/New Arrivals/${d.id}`}  >     <Button size="5xl" shape="square" className='min-w-[100px] font-bold lg:text-[15px] sm:px-4'
+                        >
                           Add to cart
-                      </Button>}
+                      </Button>
+                      </NavLink>}
                       > </Template>
-                    </>
-                  ))}
+                    </>):("")
+                  )}
                 </Suspense>
               </div>
             </div>
@@ -342,17 +280,15 @@ function HomePage() {
           <div className="container-xs mt-[103px] flex flex-col gap-[99px] lg:gap-[99px] lg:p-5 md:gap-[74px] md:p-5 sm:gap-[49px]">
             <div className="flex flex-col gap-7">
          <Section heading="Popular this week" className="mt-[9px]"></Section>           
-         <div className="flex gap-8 md:flex-col">
+         <div className="flex gap-8 md:flex-col" >
         <Suspense fallback={<div>Loading feed...</div>}>
-        {popularOfTheWeek.map((i) => (
+        {data.map((i) => ((i.popularThisWeek === true)?(
           <>
             <Template
+            page="Popular this week"
               key={i.id}
               data={i}
               className=" w-full"
-              addToCart={ <Button size="xl" shape="square" className='min-w-[100px] font-bold lg:text-[15px] sm:px-4'>
-                Add to cart
-            </Button>}
               review={         <RatingBar
                 value={i.rating}
                 isEditable={true}
@@ -364,9 +300,9 @@ function HomePage() {
             </Template>
             
             </>
-        
-          ) 
-        )}
+
+          ) :("")
+        ))}
       </Suspense>
     </div>
     </div>

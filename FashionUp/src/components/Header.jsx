@@ -1,17 +1,18 @@
 import React,{useState} from 'react'
 import {Button,Img,Input,Text} from './index.js'
 import { Link} from "react-scroll";
+import useDataContext from '../contexts/data.js';
 import {
 logo,white_search,
   shopping_cart} from '../assets/index.js'
-import useDataContext from '../contexts/data.js';
 import {NavLink} from 'react-router-dom'
 
 function Header() {
  
-  const {data,scroll,header} = useDataContext()
-console.log(header)
+  const {scroll,header} = useDataContext()
+
   const [searchBarValue, setSearchBarValue] = useState("");
+ 
   
   return (
     <header className=" flex items-center justify-center bg-white-A700 pb-[18px] pt-[17px]">
@@ -36,7 +37,7 @@ console.log(header)
         offset={-25}
         smooth={true}
         duration={500}
-        onClick={scroll(100)}
+        onClick={() =>{scroll(100)}}
         >
           <a href="#" target="_blank">
             <Text as="p" className="!font-medium !text-gray-800">
@@ -53,7 +54,7 @@ console.log(header)
         offset={-25}
         smooth={true}
         duration={500}
-        onClick={scroll(100)}
+        onClick={() => {scroll(100)}}
         >
           <a href="#">
             <Text as="p" className="!font-medium !text-gray-800">
@@ -70,7 +71,7 @@ console.log(header)
         offset={-25}
         smooth={true}
         duration={500}
-        onClick={scroll(100)}
+        onClick={() => {scroll(100)}}
         > 
           <a href="#">
             <Text as="p" className="!font-medium !text-gray-800">
@@ -87,7 +88,7 @@ console.log(header)
         offset={-25}
         smooth={true}
         duration={500}
-        onClick={scroll(100)}
+        onClick={() => {scroll(100,"Collections")}}
         >
           <a href="#">
             <Text as="p" className="!font-medium !text-gray-800">

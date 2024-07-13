@@ -9,12 +9,13 @@ function Feature({filter, design=true,product_id }) {
    const items = 
    ( data.filter((i) =>(i.alt === filter)))
 
-  console.log(product_id)
+
   const sliderItems = design ? items :
      (items.filter((i) => ( i.id !== product_id))) 
   
 
 
+     
   return (
     <div className="m-auto  flex flex-col h-max w-full  md:flex-col">
 
@@ -47,10 +48,13 @@ function Feature({filter, design=true,product_id }) {
 
     items={ 
     sliderItems.map((i, index) => (
+
           <Template
+          page="Features"
      key={i.id}
      data={i}
      className='bg-white-A700 shadow-sm w-[250px]'
+     
    ></Template>
    ))
   }>
