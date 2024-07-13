@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from './pages/Header.jsx';
-import Footer from './pages/Footer.jsx';
+import {Header,Footer} from './components/index.js'
 import { DataProvider } from './contexts/data.js';
 import {scroller}  from 'react-scroll'
 import {jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,jacket11,jacket12,
@@ -14,100 +13,117 @@ import {jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,
 const dataset = [
    
     {
-      id:"1",image: dress1,
+      id:"1",
+      image: dress1,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       alt: "dress",
+      rating:4,
     },
     {
       id:"2",image: dress2,
       label: "Black Warm Jacket",
       price: "$199",
       alt: "dress",
+      rating:3,
     },
     {
       id:"3",image: dress3,
       label: "Pink Denim Jacket",
       price: "$299",
       alt: "dress",
+      rating:1,
     },
     {
       id:"4",image: dress4,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "dress",
+      rating:2,
     },
     {
       id:"5",image: dress5,
       label: "Brown Casual Sneaker",
       price: "$599",
       alt: "dress",
+      rating:5,
     },
     {
       id:"6",image: dress9,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       alt: "dress",
+      rating:5,
     },
     {
       id:"7",image: dress11,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       alt: "dress",
+      rating:4,
     },
     {
       id:"8",image: dress13,
       label: "Black Warm Jacket",
       price: "$199",
       alt: "dress",
+      rating:3,
     },
     {
       id:"9",image: dress14,
       label: "Pink Denim Jacket",
       price: "$299",
       alt: "dress",
+      rating:2,
     },
     {
       id:"10",image: dress7,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "dress",
+      rating:1,
     },
     {
       id:"11",image: dress8,
       label: "Brown Casual Sneaker",
       price: "$599",
       alt: "dress",
+      rating:1,
     },
     {
       id:"12",image: bag1,
       label: "Purple Jacket with pants",
       price: "$699",
       alt: "pants",
+      rating:2,
     },
     {
       id:"13",image: shoe1,
       label: "Blue Denim Jacket",
       price: "$299",
       alt: "pants",
+      rating:3,
     },
     {
       id:"14",image: shoe2,
       label: "Blue Grey Warm Jacket",
       price: "$399",
       alt: "pants",
+      rating:4,
     },
     {
       id:"15",image: pant1,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "pants",
+      rating:5,
     },
     {
       id:"16",image: pant2,
       label: "Dinosur styled jacket",
       price: "$799",
       alt: "pants",
+      rating:3,
     },
    
    
@@ -118,18 +134,21 @@ const dataset = [
       label: "Blue Grey Warm Jacket",
       price: "$399",
       alt: "pants",
+      rating:2,
     },
     {
       id:"18",image: shoe4,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "pants",
+      rating:1,
     },
     {
       id:"19",image: scarf2,
       label: "Dinosur styled jacket",
       price: "$799",
       alt: "pants",
+      rating:5,
     },
    
     {
@@ -137,36 +156,42 @@ const dataset = [
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "pants",
+      rating:4,
     },
     {
       id:"21",image: pant4,
       label: "Dinosur styled jacket",
       price: "$799",
       alt: "pants",
+      rating:4,
     },
     {
       id:"22",image: pant5,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "pants",
+      rating:3,
     },
     {
       id:"23",image: pant6,
       label: "Dinosur styled jacket",
       price: "$799",
       alt: "pants",
+      rating:2,
     },
     {
       id:"24",image: pant7,
       label: "Light Green Denim Jacket",
       price: "$499",
       alt: "pants",
+      rating:1,
     },
     {
       id:"25",image: pant8,
       label: "Dinosur styled jacket",
       price: "$799",
       alt: "pants",
+      rating:5,
     },
    
      
@@ -177,6 +202,7 @@ const dataset = [
       label: "Black Orange Top",
       price: "$999",
       alt: "jacket",
+      rating:2,
     },
    
     {
@@ -184,12 +210,14 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "jacket",
+      rating:1,
     },
     {
       id:"28",image: jacket4,
       label: "Purple Top",
       price: "$299",
       alt: "jacket",
+      rating:3,
     },
    
 
@@ -201,6 +229,7 @@ const dataset = [
       label: "Black Orange Top",
       price: "$999",
       alt: "jacket",
+      rating:4,
     },
    
     {
@@ -208,12 +237,14 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "jacket",
+      rating:5,
     },
     {
       id:"31",image: jacket11,
       label: "Purple Top",
       price: "$299",
       alt: "jacket",
+      rating:1,
     },
     
     {
@@ -221,6 +252,7 @@ const dataset = [
       label: "Black Orange Top",
       price: "$999",
       alt: "jacket",
+      rating:5,
     },
    
     {
@@ -228,12 +260,14 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "jacket",
+      rating:4,
     },
     {
       id:"34",image: jacket14,
       label: "Purple Top",
       price: "$299",
       alt: "jacket",
+      rating:2,
     },
     
     {
@@ -241,6 +275,7 @@ const dataset = [
       label: "Black Orange Top",
       price: "$999",
       alt: "jacket",
+      rating:3,
     },
    
     {
@@ -248,6 +283,7 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "jacket",
+      rating:2,
     },
  
    
@@ -261,6 +297,7 @@ const dataset = [
       label: "Pattern Top",
       price: "$699",
       alt: "shirt",
+      rating:1,
     },
    
 
@@ -269,12 +306,14 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "shirt",
+      rating:3,
     },
     {
       id:"39",image: shirt3,
       label: "Black Jeans",
       price: "$399",
       alt: "shirt",
+      rating:4,
     },
     
     {
@@ -282,6 +321,7 @@ const dataset = [
       label: "Pattern Top",
       price: "$699",
       alt: "shirt",
+      rating:5,
     },
    
 
@@ -290,12 +330,14 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "shirt",
+      rating:3,
     },
     {
       id:"42",image: shirt11,
       label: "Black Jeans",
       price: "$399",
       alt: "shirt",
+      rating:2,
     },
 
     {
@@ -303,6 +345,7 @@ const dataset = [
       label: "Pattern Top",
       price: "$699",
       alt: "shirt",
+      rating:1,
     },
    
 
@@ -311,18 +354,21 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "shirt",
+      rating:4,
     },
     {
       id:"45",image: shirt14,
       label: "Black Jeans",
       price: "$399",
       alt: "shirt",
+      rating:5,
     },
     {
       id:"46",image: shirt15,
       label: "Pattern Top",
       price: "$699",
       alt: "shirt",
+      rating:4,
     },
    
 
@@ -331,68 +377,87 @@ const dataset = [
       label: "Casual Pink Shirt",
       price: "$499",
       alt: "shirt",
+      rating:3,
     },
     {
       id:"48",image: shirt17,
       label: "Black Jeans",
       price: "$399",
       alt: "shirt",
+      rating:2,
     },
     {
       id:"49",image: shirt6,
       label: "Purple Top",
       price: "$299",
       alt: "shirt",
+      rating:1,
     },
     {
       id:"50",image: shirt7,
       label: "Black Orange Top",
       price: "$999",
       alt: "shirt",
+      rating:5,
     },
     {
       id:"51",image: pant3,
       label: "Dinosur styled jacket",
       price: "$799",
       alt: "pants",
+      rating:5,
     },
     {
       id:"52",image: bag2,
       label: "Red Flannel",
       price: "$899",
       alt: "pants",
+      rating:4,
     },
     {
       id:"53",image: shirt8,
       label: "Red Flannel",
       price: "$899",
-      alt:"shirt"
+      alt:"shirt",
+      rating:1,
 
     },
     {
       id:"54",image: dress6,
       label: "Purple Jacket with pants",
       price: "$699",
-      alt:"dress"
+      alt:"dress",
+      rating:4,
     },
     {
       id:"55",image: scarf1,
       label: "Blue Grey Warm Jacket",
       price: "$399",
-      alt:"pants"
+      alt:"pants",
+      rating:5,
     },
     {
       id:"56",image: jacket6,
       label: "Purple Jacket with pants",
       price: "$499",
-      alt:"jacket"
+      alt:"jacket",
+      rating:2,
     },
     {
       id:"57",image: jacket8,
       label: "Purple Jacket with pants",
       price: "$599",
-      alt:"jacket"
+      alt:"jacket",
+      rating:3,
     },
+    {
+      id:"58",
+      image:jacket7,
+      label:"Purple Jacket with pants",
+      price:"$599",
+      alt:"jacket",
+      rating:4,
+    }
 
   
     
@@ -422,7 +487,7 @@ const setheader = (value) =>{
     setData(dataset)
     
     
-  },[])
+  },[])    
 
  
   return (

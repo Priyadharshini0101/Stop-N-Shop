@@ -7,5 +7,7 @@ import RatingBar from './RatingBar.jsx'
 import Section from './Section.jsx'
 import Template from './Template.jsx'
 import Text from './Text.jsx'
+import Header from './Header.jsx'
+import Footer from './Footer.jsx'
 
-export {Button,Feature,Heading,Img,Input,RatingBar,Section,Template,Text} 
+export {Button,Feature,Heading,Img,Input,RatingBar,Section,Template,Text,Header,Footer} 

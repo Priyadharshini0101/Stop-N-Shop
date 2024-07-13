@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Button,Img,Input,Text} from '../components/index.js'
+import {Button,Img,Input,Text} from './index.js'
 import { Link} from "react-scroll";
 import {
 logo,white_search,
@@ -106,7 +106,6 @@ console.log(header)
             placeholder={`Search here`}
             value={searchBarValue}
             onChange={setSearchBarValue}
-          
             variant="outline"
             suffix={
               <div className="flex h-[48px] w-[48px] items-center justify-center">

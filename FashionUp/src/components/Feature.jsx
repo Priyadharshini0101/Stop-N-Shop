@@ -4,20 +4,23 @@ import useDataContext from '../contexts/data';
 import AliceCarousel  from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"
 
-function Feature({filter}) {
+function Feature({filter, design=true,product_id }) {
    const {data} = useDataContext();
-   const sliderItems =   data.filter((i) =>(   
-    i.alt === filter
-  )
-)
+   const items = 
+   ( data.filter((i) =>(i.alt === filter)))
 
-
+  console.log(product_id)
+  const sliderItems = design ? items :
+     (items.filter((i) => ( i.id !== product_id))) 
+  
 
 
   return (
     <div className="m-auto  flex flex-col h-max w-full  md:flex-col">
-   <div className="absolute mt-[50px] z-0 h-[426px] w-[22%] bg-gray-800"></div>
-    
+
+   { design ? (<div className="absolute mt-[50px] z-0 h-[426px] w-[22%] bg-gray-800"></div>):
+   ""
+    }
     <div className="z-10 ml-[50px] mt-[90px] flex gap-[10px] md:ml-[50px] md:flex-col md:self-stretch ">
    
      <AliceCarousel

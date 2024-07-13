@@ -9,7 +9,9 @@ const sizes = {
   xs : "h-[48px]  text-lg",
   md: "h-[64px] pl-6 pr-4 text-lg",
   sm : "h-[57px] pr-[35px] text-lg",
-  lg: "h-[60px] pl-6"
+  lg: "h-[60px] pl-6",
+
+  
 }
 
 
@@ -29,7 +31,7 @@ const variants = {
 }
 
 
-function Input({className="",
+function Input({className=" ",
   name="",
   placeholder ="",
   type="",
@@ -44,14 +46,14 @@ function Input({className="",
   color="blue_gray_100",
   setSearchBarValue,searchBarValue}){
   return (
-    <label className={`${className ,background} flex items-center justify-center cursor-text ${(shape && shapes[shape]) || ""} ${sizes[size] || ""} ${variants[variant]?.[color] || variants[variant] || "" }`}>
+    <label className={`${background} flex items-center justify-center cursor-text ${(shape && shapes[shape]) || ""} ${sizes[size] || ""} ${variants[variant]?.[color] || variants[variant] || "" }`}>
       {!!label && label}
       {!!prefix && prefix}
    
     <input     name={name}
     value={searchBarValue}
     type={type}
-    onChange={(e) => setSearchBarValue(e.target.value)}  placeholder={placeholder} className={`${className} rounded-[0px] bg-white-A700 text-gray-800 h-[48px] pl-8 text-lg`}></input>
+    onChange={(e) => setSearchBarValue(e.target.value)}  placeholder={placeholder} className={`${className} h-[48px] rounded-[0px] bg-white-A700 text-gray-800 pl-8 text-lg`}></input>
     {!!suffix && suffix}
     </label>
   )

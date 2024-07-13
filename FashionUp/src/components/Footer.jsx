@@ -1,12 +1,12 @@
 import React from "react";
-import { Heading,Img,Input,Text} from '../components/index.js'
+import { Heading,Img,Input,Text} from './index.js'
 import { Link} from "react-scroll";
 import {arrow,facebook,instagram,twitter} from '../assets/index.js'
 
 import useDataContext from '../contexts/data.js';
 
 function Footer() {
-    const {data,scroll} = useDataContext()
+    const {data,scroll,header} = useDataContext()
 
   return (
     <>
@@ -46,12 +46,12 @@ function Footer() {
                     </div>
                   }
                  
-                 className="w-[90%] gap-[8px] tracking-[0.36px] text-gray-500_7f sm:pl-4"
+                 className="h-[48px] w-[90%] gap-[8px] tracking-[0.36px] text-gray-500_7f sm:pl-4"
                 >
                   </Input>
                  </div>
-                 <div className="flex w-[46%] items-start justify-between gap-5 md:w-full md:flex-col">
-                  <div className="flex flex-col gap-[21px]">
+                 <div className="flex w-[32%] items-start justify-between gap-5 md:w-full md:flex-col">
+                { !header ? (<div className="flex flex-col gap-[21px]">
                     <Heading size="s" as="h4" className="!text-white-A700">
                       Product Links
                     </Heading>
@@ -129,7 +129,7 @@ function Footer() {
                   </Link>
                       </li>
                     </ul>
-                  </div>
+                  </div>) : ""}
                   <div className="flex flex-col gap-[21px]">
                     <Heading size="s" as="h4" className="!text-white-A700">
                       Company

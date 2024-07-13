@@ -10,9 +10,9 @@ const sizes = {
   xl : "h-[50px] text-sm",
   "2xl" : "h-[56px] p-2.5 text-2xl",
   xs : "h-[24px] px-[5px]",
-  "3xl" : "h-[60px] px-[33px] text-2xl",
+  "3xl" : "h-[50px]  text-xl",
   md: "h-[48px] px-[34px] text-sm",
-  sm : "h-[48px] px-4",
+  sm : "h-[32px] w-[32px] p-4 text-[18px]",
   "7xl" : "h-[103px] px-[33px] text-lg",
   "5xl" : "h-[60px] p-5 text-lg",
   lg: "h-[50px] px-[22px] text-lg"

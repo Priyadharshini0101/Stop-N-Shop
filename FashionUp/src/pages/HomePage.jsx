@@ -1,7 +1,7 @@
 import React, { useState, Suspense, useEffect, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import  {  NavLink } from "react-router-dom";
-import { Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text} from '../components/index.js'
+import { Button, Feature,Heading,Img,Input,RatingBar,Section,Template,Text,Header} from '../components/index.js'
 import { Link, scroller} from "react-scroll";
 import {jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,jacket11,jacket12,
   jacket13,jacket14,jacket15,jacket16,arrow,bag,bag1,bag2,broken,collection,collection1,creditCard,dress,dress1,dress2,
@@ -9,7 +9,6 @@ import {jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,
   pant2,pant3,pants,scarf1,scarf2,shipping,shirt,shirt2,shirt3,shirt5,shirt6,shirt7,shirt8,shirt10,shirt9,
   shirt11,shirt12,shirt13,shirt14,shirt15,shirt16,shirt17,shoe1,shoe2,shoe3,shoe4,shoes,support,twitter,white_search,
   shopping_cart,pant4,pant5,pant6,pant7,pant8} from '../assets/index.js'
-import Header from "./Header.jsx";
 import useDataContext from "../contexts/data.js";
 
 function HomePage() {
@@ -139,7 +138,7 @@ function HomePage() {
 
   return (
   
-    <Fragment to="/">
+    <>
       {/*Title */}
       <Helmet>
         <title>Summer Sale - Exclusive Discounts on Fashion Collections</title>
@@ -150,7 +149,6 @@ function HomePage() {
         ></meta>
       </Helmet>
     
-      {/*Header section */}
       
       <div className=" w-full bg-white-A700">
         {/* Banner Section */}
@@ -221,7 +219,7 @@ function HomePage() {
           <Section heading="New Arrivals"></Section>
             <div className="flex gap-8 md:flex-col">
               <div className=" flex w-full items-center justify-center gap-6 bg-gray-50 p-7 md:flex-col sm:p-4">
-              <NavLink to="/product">
+              <NavLink to={`/product/${58}`}>
               <Img
                   src={jacket7}
                   alt="product image"
@@ -376,7 +374,7 @@ function HomePage() {
         </div>
        
       </div>
-    </Fragment>
+    </>
   
   );
 }
