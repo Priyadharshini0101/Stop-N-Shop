@@ -51,19 +51,19 @@ function Product() {
                   {label}
                 </Text>
               </div>
-              <div className='flex w-full'>
-                <div className='flex w-full justify-center'>
+              <div className='flex w-full sm:flex-col'>
+                <div className='flex w-full justify-center p-10'>
                   <Img
                   src={image}
                   alt={alt}
                   className="h-[523px]   object-cover lg:h-auto md:h-auot"
                   ></Img>
                 </div>
-                <div className='w-full flex flex-col items-start gap-[31px]'>
+                <div className='w-full flex flex-col items-start gap-[31px] p-10'>
                   <Heading
                   size="md"
                   as="h1"
-                  className="leading-[25px] lg:w-full lg:p-5 md:w-full md:text=4xl sm:text-3xl">
+                  className="leading-[25px] lg:w-full  md:w-full md:text=4xl sm:text-3xl">
                       <>
                       {label}
                       </>
