@@ -52,14 +52,14 @@ function Product() {
                 </Text>
               </div>
               <div className='flex w-full sm:flex-col'>
-                <div className='flex w-full justify-center p-10'>
+                <div className='flex w-full justify-center p-5'>
                   <Img
                   src={image}
                   alt={alt}
                   className="h-[523px]   object-cover lg:h-auto md:h-auot"
                   ></Img>
                 </div>
-                <div className='w-full flex flex-col items-start gap-[31px] p-10'>
+                <div className='w-full flex flex-col items-start gap-[31px] p-5'>
                   <Heading
                   size="md"
                   as="h1"
