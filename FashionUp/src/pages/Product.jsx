@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Text,Section, Feature,Heading,Img,Button,RatingBar } from '../components/index';
 import useDataContext from '../contexts/data';
 import { Helmet } from 'react-helmet';
-import { shopping_cart_white } from '../assets';
+import { shopping_cart_white, shopping_cart } from '../assets';
 
 function Product() {
   const { page,id } = useParams();
@@ -24,7 +24,8 @@ function Product() {
    
   }
   const substractQuantity= () =>{
-    setToCart((sub) => sub - 1);
+  
+    setToCart((sub) =>  (sub == 1 ) ? 1 : (sub - 1));
   }
 
 
@@ -69,7 +70,7 @@ function Product() {
                       </>
                   </Heading>
                   <Text size="md" as="p" className='md:text-3xl sm:text-[28px]'>
-                    {price}
+                    {'$ ' + price}
                   </Text>
                   <Text as="p" className='w-[75%] leading-8'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -91,11 +92,18 @@ function Product() {
                     size="sm"
                     shape="square"
                      onClick={addQuantity}
-                    className=" w-full mr-2.5 font-medium lg:text-[15px] sm:px-4">
+                     disabled = {addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  (false) :(true)}
+                     
+                    className={` w-full mr-2.5 font-medium lg:text-[15px] sm:px-4 
+                      ${addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  ``:`cursor-not-allowed
+                        `}`}>
                     +
                
                     </Button>
                     <input     
+                    
+                    disabled = {addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  (false) :(true)}
+                    
                     value={toCart}
                     onChange={(e) => setToCart(Number(e.target.value))}
                     className=" rounded-[0px] text-gray-800 px-2 text-lg border-gray-800 border border-solid border-[1px] w-[48px] h-[32px] "
@@ -105,8 +113,13 @@ function Product() {
                     <Button
                     onClick={substractQuantity}
                     size="sm"
+                    disabled = {addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  (false) :(true)}
+                
                     shape="square"
-                    className=" w-full ml-2.5 font-medium lg:text-[15px] sm:px-4">
+                    className={` w-full ml-2.5 font-medium lg:text-[15px] sm:px-4
+                      ${addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  ``:`cursor-not-allowed
+                        `}`}
+                    >
                     -
 
                     </Button>
@@ -116,8 +129,9 @@ function Product() {
                     size="3xl"
                     shape="square"
                     rightIcon={<Img
-                    src={shopping_cart_white} alt="cart" className='h-[32px] w-[32px]'></Img>}
-                    className='min-w-[245px] gap-5 px-5 font-bold lg:text-[15px] sm:px-4'
+                    src={addToCart.findIndex((cart) => (id === cart.id)) === -1  ? shopping_cart_white : shopping_cart} alt="cart" className='h-[32px] w-[32px]'></Img>}
+                    className={`min-w-[245px] gap-5 px-5 font-bold lg:text-[15px] sm:px-4`}
+                    color={addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  'gray_800':'white_A700_1'}
                     onClick={() => {product['0'].quantity = toCart, setaddtocart(product['0'])}}>
                     {addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  'Add to Cart':'Remove from Cart'}  
                     </Button>

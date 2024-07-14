@@ -15,7 +15,7 @@ function Template({data={id:0,image:warning, label:"Purple Warm Jacket",price:"$
             <Text
             size="xs" as="p" className="!text-gray-800" >{data.label}</Text>
             <Text
-            as="p" className="!font-medium">{data.price}</Text>
+            as="p" className="!font-medium">{'$ ' + data.price}</Text>
         </div>
         {!!addToCart && addToCart}
         {!!review && review}

@@ -1,4 +1,6 @@
 import React from 'react'
+import useDataContext from '../contexts/data'
+import { useParams } from 'react-router'
 
 const shapes = {
   square: "rounded-[0px]",
@@ -28,6 +30,7 @@ const variants = {
   },
   fill:{
     gray_800 : "bg-gray-800 text-white-A700",
+    white_A700_1: "bg-gray-100 text-black",
     white_A700: "bg-white-A700 text-gray-800"
   }
 
@@ -43,8 +46,11 @@ function Button({className="",
 size="lg",
 color="gray_800",
 ...restProps}) {
+
   return (
     <button 
+  
+     
     className={`flex flex-row items-center justify-center text-center cursor-pointer  ${className} ${(shape && shapes[shape]) || ""} ${(size && sizes[size]) || ""} ${(variant && variants[variant]?.[color]) || ""}`}  {...restProps}>
       {!!leftIcon && leftIcon}
       {children}

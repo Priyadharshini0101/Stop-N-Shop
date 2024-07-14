@@ -1,4 +1,4 @@
-import React, { Suspense} from "react";
+import React, { Suspense, useEffect} from "react";
 import { Helmet } from "react-helmet";
 import  {  NavLink } from "react-router-dom";
 import { Button, Feature,Heading,Img,RatingBar,Section,Template,Text} from '../components/index.js'
@@ -64,8 +64,9 @@ function HomePage() {
   const {setheader} = useDataContext();
   setheader(false);
 
-
-
+  useEffect(() =>{
+    window.scroll(0,0)
+  },[])
   return (
   
     <>

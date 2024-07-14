@@ -10,6 +10,7 @@ const sizes = {
   md: "h-[64px] pl-6 pr-4 text-lg",
   sm : "h-[57px] pr-[35px] text-lg",
   lg: "h-[60px] pl-6",
+  xl:" "
 
   
 }
@@ -53,7 +54,7 @@ function Input({className=" ",
     <input     name={name}
     value={searchBarValue}
     type={type}
-    onChange={(e) => setSearchBarValue(e.target.value)}  placeholder={placeholder} className={`${className} h-[48px] rounded-[0px] bg-white-A700 text-gray-800 pl-8 text-lg`}></input>
+    onChange={(e) => setSearchBarValue(e.target.value)}  placeholder={placeholder} className={`${className} h-[48px] rounded-[0px] bg-white-A700 text-gray-800 pl-4 text-lg`}></input>
     {!!suffix && suffix}
     </label>
   )
