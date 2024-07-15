@@ -11,14 +11,20 @@ function Cart() {
  
   const {setheader,addToCart,setaddtocart} = useDataContext();
   const [sum, setSum] = useState(0);
-
+  const [applyCode,setApplyCode] = useState(false)
+  const [discount, setDiscount] = useState(0)
 
   const setTotal = () =>{
-   
+     setSum(0)
     addToCart.map((cart) => 
       setSum((c) => c + (cart.price * cart.quantity))
 
   )
+  }
+
+  const calculateDiscount = () =>{
+    setTotal((c) => c - 100);
+       setApplyCode(true)
   }
   useEffect(() =>{
   
@@ -151,10 +157,10 @@ function Cart() {
   return (
   <>
   <Helmet>
-    <title>Shopping Cart - Find Your Favorite Products | Fashion Up</title>
+    <title>Shopping Cart - Find Your Favorite Products | Stop 'N Shop</title>
     <meta
     name="description"
-    content="Explore your shopping cart to review selected items. Apply coupon codes, continue shopping, or proceed to checkout. Show now with Fashion Up!"></meta>
+    content="Explore your shopping cart to review selected items. Apply coupon codes, continue shopping, or proceed to checkout. Show now with Stop 'N Shop!"></meta>
   </Helmet>
   <div className='container-sm mt-[31px] flex flex-col gap-[79px] lg:gap-[79px] lg:p-5 md:gap-[59px] md:p-5 sm:gap-[39px]'>
     <div className='flex flex-col items-center'>
@@ -225,17 +231,20 @@ function Cart() {
       </div>
       <div className='flex items-center justify-between gap-5 md:flex-col'>
         <div className='flex gap-0.5  items-center justify-between p-4 md:w-full'>
-          <Input placeholder='Enter coupon code'  className=' !text-gray-500_7f'>
+          <Input placeholder='Enter coupon code'  className=' !text-gray-800' value="discount" 
+          onChange={(e) => setDiscount(Number(e.target.value))}>
           </Input>
-          <Button size="xl"  shape="square" className='min-w-[137px] font-medium lg:text-[15px]'>Apply Code</Button>
+          <Button size="xl"  shape="square" className='min-w-[137px] font-medium lg:text-[15px]' onClick={() =>calculateDiscount()}>Apply Code</Button>
         </div> 
         <div className='flex flex-col items-end gap-4'>
           <Text as="p" className='!font-medium'>
             Total
           </Text>
           <Heading as="h2" className='md:text-3xl sm:text-[28px]'>
-            
-          {'$' + sum}
+            {applyCode ?    <Text as="p" size="md" className='!font-mono line-through'>
+             {'$' + (sum + 100)}
+          </Text>:("")}
+          {'$' + sum} 
 
           </Heading>
         </div>

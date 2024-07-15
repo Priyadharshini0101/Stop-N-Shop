@@ -218,7 +218,7 @@ function Footer() {
                  </a>
                 </div>
                 <Text size="xs" as="p" className="!text-white-A700">
-                  Copyright &#169; 2021 Fashion Up. All Right Reserved
+                  Copyright &#169; 2021 Stop 'N Shop. All Right Reserved
                 </Text>
 
               </div>

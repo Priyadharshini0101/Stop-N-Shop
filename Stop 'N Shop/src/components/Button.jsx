@@ -1,6 +1,4 @@
 import React from 'react'
-import useDataContext from '../contexts/data'
-import { useParams } from 'react-router'
 
 const shapes = {
   square: "rounded-[0px]",
@@ -54,7 +52,8 @@ color="gray_800",
     className={`flex flex-row items-center justify-center text-center cursor-pointer  ${className} ${(shape && shapes[shape]) || ""} ${(size && sizes[size]) || ""} ${(variant && variants[variant]?.[color]) || ""}`}  {...restProps}>
       {!!leftIcon && leftIcon}
       {children}
-      {!!rightIcon && rightIcon}</button>
+      {!!rightIcon && rightIcon}
+      </button>
   )
 }
 

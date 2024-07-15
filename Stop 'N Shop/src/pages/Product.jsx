@@ -35,7 +35,7 @@ function Product() {
       <title>{label}</title>
       <meta
       name="description"
-      content={`Get the details of our ${label} and explore similar products. High-quality materials, great prices, and stylish designs. Add to your cart today at Fashion Up!`}>
+      content={`Get the details of our ${label} and explore similar products. High-quality materials, great prices, and stylish designs. Add to your cart today at Stop 'N Shop!`}>
       </meta>
       </Helmet>
       <div className='flex w-full flex-col items-center b-white-A700'>
@@ -95,8 +95,7 @@ function Product() {
                      disabled = {addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  (false) :(true)}
                      
                     className={` w-full mr-2.5 font-medium lg:text-[15px] sm:px-4 
-                      ${addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  ``:`cursor-not-allowed
-                        `}`}>
+                      ${(addToCart.findIndex((cart) => (id === cart.id)) === -1) ?  ``:`cursor-no-drop`}`}>
                     +
                
                     </Button>
@@ -117,8 +116,7 @@ function Product() {
                 
                     shape="square"
                     className={` w-full ml-2.5 font-medium lg:text-[15px] sm:px-4
-                      ${addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  ``:`cursor-not-allowed
-                        `}`}
+                      ${addToCart.findIndex((cart) => (id === cart.id)) === -1 ?  ``:`cursor-no-drop`}`}
                     >
                     -
 

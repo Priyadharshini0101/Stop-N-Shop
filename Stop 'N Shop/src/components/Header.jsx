@@ -23,7 +23,7 @@ function Header() {
         className="h-[50px] w-[50px] object-contain"
         imgText={
           <Text size="s"  className="!font-bold  !text-gray-800">
-           Fashion Up
+           Stop 'N Shop
           </Text>
         } 
       ></Img>
