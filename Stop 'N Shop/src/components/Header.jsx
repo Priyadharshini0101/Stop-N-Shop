@@ -22,7 +22,8 @@ function Header() {
         alt="header logo"
         className="h-[50px] w-[50px] object-contain"
         imgText={
-          <Text size="s"  className="!font-bold  !text-gray-800">
+          <Text size="s"  className="!font-bold  !text-gray-800 underline underline-offset-4 italic
+          ">
            Stop 'N Shop
           </Text>
         } 
