@@ -9,31 +9,43 @@ import {close}  from '../assets/index.js'
 
 function Cart() {
  
-  const {setheader,addToCart,setaddtocart} = useDataContext();
+  const {setheader,addToCart,setaddtocart,applyCode,setapplycode} = useDataContext();
   const [sum, setSum] = useState(0);
-  const [applyCode,setApplyCode] = useState(false)
-  const [discount, setDiscount] = useState(0)
 
   const setTotal = () =>{
      setSum(0)
+
     addToCart.map((cart) => 
       setSum((c) => c + (cart.price * cart.quantity))
 
   )
+  if(applyCode){
+    setSum((c) => c - 100)
+  }
+
+   
   }
 
   const calculateDiscount = () =>{
-    setTotal((c) => c - 100);
-       setApplyCode(true)
+    if(applyCode == true){
+      return
+    }
+   
+    setapplycode()
+    
+    setSum((c) => c - 100)
+    
   }
+
   useEffect(() =>{
-  
     window.scrollTo(0, 0)
     setTotal()
    
-    
-    
   },[])
+
+
+
+  
  
   
   
@@ -242,7 +254,8 @@ function Cart() {
           </Text>
           <Heading as="h2" className='md:text-3xl sm:text-[28px]'>
             {applyCode ?    <Text as="p" size="md" className='!font-mono line-through'>
-             {'$' + (sum + 100)}
+             
+             {'$' + (sum + 100 )}
           </Text>:("")}
           {'$' + sum} 
 

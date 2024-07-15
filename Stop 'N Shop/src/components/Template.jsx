@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, Img} from '../components/index.js'
+import {Text, Img} from './index.js'
 import {warning} from '../assets/index.js'
 import {Link} from 'react-router-dom'
 

@@ -1,5 +1,5 @@
 import React,{Suspense, useState,useContext,useRef,Fragment, useEffect} from 'react'
-import {Template} from '../components/index.js'
+import {Template} from './index.js'
 import useDataContext from '../contexts/data';
 import AliceCarousel  from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"

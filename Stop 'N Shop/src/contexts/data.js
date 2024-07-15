@@ -8,6 +8,8 @@ export const DataContext = createContext({
    setheader:() => {},
    addToCart:[],
    setaddtocart:() => {},
+   applyCode:false,
+   setapplycode:() =>{},
 })
 
 export const DataProvider = DataContext.Provider;

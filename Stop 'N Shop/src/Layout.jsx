@@ -437,6 +437,11 @@ function Layout() {
 }
 const [header,setHeader] = useState(false)
 const [addToCart,setAddToCart] = useState([])
+const [applyCode,setApplyCode] = useState(false)
+
+const setapplycode = () =>{
+  setApplyCode(true)
+}
 
 const setheader = (value) =>{
   setHeader(value);
@@ -464,7 +469,7 @@ const setaddtocart = (product) =>{
 
   return (
     <>
-      <DataProvider value={{data,scroll,header,setheader,addToCart,setaddtocart}}>
+      <DataProvider value={{data,scroll,header,setheader,addToCart,setaddtocart,applyCode,setapplycode}}>
     <Header></Header>
     <Outlet></Outlet>
     <Footer></Footer>
