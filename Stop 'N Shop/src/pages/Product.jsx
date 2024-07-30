@@ -122,7 +122,7 @@ function Product() {
                     }
                     value={toCart}
                     onChange={(e) => setToCart(Number(e.target.value))}
-                    className=" rounded-[0px] text-gray-800 px-2 text-lg border-gray-800 border border-solid border-[1px] w-[48px] h-[32px] "
+                    className=" rounded-[0px] text-gray-800 px-2 text-lg border-gray-800 border border-solid w-[48px] h-[32px] "
                   ></input>
 
                   <Button

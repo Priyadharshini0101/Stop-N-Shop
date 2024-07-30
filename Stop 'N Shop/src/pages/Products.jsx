@@ -138,7 +138,7 @@ function Products() {
                     <Img
                       src={jacket}
                       alt="jacket"
-                      className="w-[24px] h-[24px] cursor-pointer hover:scale-125 cursor-pointer hover:scale-125"
+                      className="w-[24px] h-[24px] cursor-pointer hover:scale-1255"
                     ></Img>
                     <Text
                       size="texts"
