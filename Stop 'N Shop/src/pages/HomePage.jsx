@@ -115,7 +115,7 @@ function HomePage() {
               <div className="flex w-[47%] flex-col items-start lg:w-full md:w-full">
                 <Button
                   color="white_A700"
-                  size="2xl"
+                  size="md"
                   shape="square"
                   className="min-w-[271px] font-medium lg:text-xl"
                 >
@@ -134,7 +134,7 @@ function HomePage() {
                 <NavLink to="/product_list">
                   {" "}
                   <Button
-                    size="2xl"
+                    size="md"
                     shape="square"
                     rightIcon={
                       <Img
@@ -203,7 +203,7 @@ function HomePage() {
                   </div>
                   <NavLink to={`/product/New Arrivals/${58}`}>
                     <Button
-                      size="5xl"
+                      size="lg"
                       shape="square"
                       className="min-w-[100px] font-bold lg:text-[15px] sm:px-4 hover:bg-gray-400"
                     >
@@ -227,7 +227,7 @@ function HomePage() {
                             <NavLink to={`/product/New Arrivals/${d.id}`}>
                               {" "}
                               <Button
-                                size="5xl"
+                                size="lg"
                                 shape="square"
                                 className="min-w-[100px] font-bold lg:text-[15px] sm:px-4 hover:bg-gray-400"
                               >

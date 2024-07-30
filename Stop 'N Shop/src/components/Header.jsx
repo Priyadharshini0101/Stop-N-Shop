@@ -155,7 +155,7 @@ function Header() {
           <a href="#" className="sm:relative sm:right-[-100px]">
             <Button
               className="min-w-[107px] font-bold  lg:text-[15px] sm:px-4 text-white-A700 hover:bg-gray-400"
-              size="5xl"
+              size="lg"
               shape="square"
             >
               Login

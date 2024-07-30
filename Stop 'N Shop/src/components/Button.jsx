@@ -6,10 +6,10 @@ const shapes = {
 
 const sizes = {
   xl: "h-[50px] text-sm",
-  "2xl": "h-[56px] p-2.5 text-2xl",
-  "3xl": "h-[50px]  text-xl",
+md: "h-[56px] p-2.5 text-2xl",
+  xs: "h-[50px]  text-xl",
   sm: "h-[32px] w-[32px] p-4 text-[18px]",
-  "5xl": "h-[60px] p-5 text-lg",
+  lg: "h-[60px] p-5 text-lg",
 };
 
 const variants = {

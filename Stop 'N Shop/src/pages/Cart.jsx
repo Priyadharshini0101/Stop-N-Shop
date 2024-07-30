@@ -277,7 +277,7 @@ function Cart() {
                 <Link to="/">
                   {" "}
                   <Button
-                    size="3xl"
+                    size="xs"
                     variant="outline"
                     shape="square"
                     className="min-w-[207px] xs:w-full font-medium lg:text-[15px]"
@@ -286,7 +286,7 @@ function Cart() {
                   </Button>
                 </Link>
                 <Button
-                  size="3xl"
+                  size="xs"
                   shape="square"
                   className="min-w-[171px]  font-medium lg:text-[15px] sm:px-4"
                 >

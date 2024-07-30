@@ -145,7 +145,7 @@ function Product() {
                   </Button>
                 </div>
                 <Button
-                  size="3xl"
+                  size="xs"
                   shape="square"
                   rightIcon={
                     <Img
