@@ -20,7 +20,7 @@ import bag2 from './Images/img_bag2.jfif'
 import broken from './Images/img_broken.svg'
 import collection from './Images/img_collection.jpg'
 import collection1 from './Images/img_collection1.jpg'
-import creditCard from './Images/img_credit_card.png'
+import credit_card from './Images/img_credit_card.png'
 import dress from './Images/img_dress.png'
 import dress1 from './Images/img_dress1.jfif'
 import dress2 from './Images/img_dress2.jfif'
@@ -72,18 +72,19 @@ import shoe3 from './Images/img_shoe3.jfif'
 import shoe4 from './Images/img_shoe4.jfif'
 import support from './Images/img_support.svg'
 import twitter from './Images/img_twitter.png'
-import white_search from './Images/img_white_search.png'
-import shopping_cart from './Images/shopping_cart.png'
+import white_search_icon from './Images/img_white_search_icon.png'
+import shopping_cart from './Images/img_shopping_cart.png'
 import warning from './Images/img_warning.png'
-import shopping_cart_white from './Images/shopping_cart_white.png'
+import white_shopping_cart from './Images/img_white_shopping_cart.png'
 import close from './Images/img_close.png'
+import drop_down from './Images/img_dropdown.png'
 
 export {close,jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,jacket11,jacket12,
-jacket13,jacket14,jacket15,jacket16,arrow,bag,bag1,bag2,broken,collection,collection1,creditCard,dress,dress1,dress2,
+jacket13,jacket14,jacket15,jacket16,arrow,bag,bag1,bag2,broken,collection,collection1,credit_card,dress,dress1,dress2,
 dress3,dress4,dress5,dress6,dress11,dress13,dress14,dress7,dress8,dress9,facebook,instagram,logo,pant1,
 pant2,pant3,pants,scarf1,scarf2,shipping,shirt,shirt2,shirt3,shirt5,shirt6,shirt7,shirt8,shirt10,shirt9,
-shirt11,shirt12,shirt13,shirt14,shirt15,shirt16,shirt17,shoe1,shoe2,shoe3,shoe4,shoes,support,twitter,warning,white_search,
-shopping_cart,pant4,pant5,pant6,pant7,pant8,shopping_cart_white} 
+shirt11,shirt12,shirt13,shirt14,shirt15,shirt16,shirt17,shoe1,shoe2,shoe3,shoe4,shoes,support,twitter,warning,white_search_icon,
+shopping_cart,pant4,pant5,pant6,pant7,pant8,white_shopping_cart,drop_down} 
 
 
 

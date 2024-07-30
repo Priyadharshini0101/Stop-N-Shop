@@ -4,7 +4,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,html,mdx}"],
     darkMode:"class",
   theme: {
-    screens: {lg: {max:"1440px"}, md: {max: "1050px"},sm: {max:"550px"}, xs:{max:"360px"}},
+    screens: {lg: {max:"1440px"}, md: {max: "1050px"},sm: {max:"768px"}, xs:{max:"480px"}},
     extend: {
       boxShadow:{
         xs: "0 16px 50px #0000000c",

@@ -2,74 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  margin:0;
-  padding:0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-*{
+* {
   box-sizing: border-box;
   line-height: normal;
   font-family: inherit;
-  margin:unset;
+  margin: unset;
 }
-ul{
-  margin:0;
+
+ul {
+  margin: 0;
   margin-inline: unset !important;
   padding: 0;
   list-style: none;
 }
-a{
+
+a {
   text-decoration: none;
   display: block;
 }
 
-@layer components{
-  .container-xs{
+@layer components {
+  .container-xs {
     @apply w-full mx-auto max-w-[1430px];
   }
 
-  .container-sm{
+  .container-sm {
     @apply w-full mx-auto max-w-[1432px];
   }
-  .container-md{
+
+  .container-md {
     @apply w-full mx-auto max-w-[1433px];
   }
 }
 
 
-.btn-prev{
-position: relative;
-bottom:250px;
-  color: #9f9f9f;
+.btn-prev {
+  position: relative;
+  bottom: 250px;
+  color: gray;
   font-size: 75px;
   cursor: pointer;
   z-index: 2;
-  left:-40px;
- 
- width:fit-content;
+  left: -40px;
+
+  width: fit-content;
 }
-.btn-next{
-  
 
- position: relative;
- bottom:250px;
+.btn-next {
+  position: relative;
+  bottom: 250px;
+  width: fit-content;
+  color: gray;
 
- width:fit-content;
-   color: #9f9f9f;
-   font-size: 75px;
-   cursor: pointer;
-   z-index: 0;
-   left:100%;
-   
-
-   
-
+  font-size: 75px;
+  cursor: pointer;
+  z-index: 0;
+  left: 100%;
   text-align: right;
+}
+
+.btn-next:hover {
+  color: #9f9f9f7f;
+
 
 }
 
-.tab{
-  color:#e9e611;
-  font-weight: bold;
+
+.btn-prev:hover {
+  color: #9f9f9f7f;
+
+
 }
