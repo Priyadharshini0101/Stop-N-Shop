@@ -30,15 +30,15 @@ import {
 import useDataContext from "../contexts/data.js";
 
 function HomePage() {
-  const { data } = useDataContext();
+  const { data,setcategory } = useDataContext();
 
   const categories = [
-    { image: jacket, label: "Jacket" },
-    { image: shirt, label: "T-shirt" },
-    { image: pants, label: "Pants" },
-    { image: dress, label: "Dress" },
-    { image: shoes, label: "Shoes" },
-    { image: bag, label: "Accesories" },
+    { image: jacket, label: "Jacket",alt:"jacket"},
+    { image: shirt, label: "T-shirt",alt:"shirt" },
+    { image: pants, label: "Pants" ,alt:"pants"},
+    { image: dress, label: "Dress",alt:"dress"},
+    { image: shoes, label: "Shoes" ,alt:"shoes"},
+    { image: bag, label: "Accesories" ,alt:"accessories"},
   ];
   const help = [
     {
@@ -161,17 +161,22 @@ function HomePage() {
           <div className="flex gap-8 md:flex-col">
             <Suspense fallback={<div>Loading feed...</div>}>
               {categories.map((d, index) => (
-                <div
-                  key={"productsList" + index}
-                  className="flex w-full flex-col items-center gap-[7px] bg-gray-50 px-9   pb-[46px]  pt-9 md:pb-5 sm:p-4 hover:bg-gray-200 "
-                >
+            
+                     <NavLink to="/product_list"
+                       key={"productsList" + index}
+                  
+                       onClick={() => setcategory(d.alt)}
+                         
+                       className="flex w-full flex-col items-center gap-[7px] bg-gray-50 px-9   pb-[46px]  pt-9 md:pb-5 sm:p-4 hover:bg-gray-200 "
+                 >
                   <Img
                     src={d.image}
                     alt={d.label}
                     className="h-[96px] w-[96px]"
                   ></Img>
                   <Text as="p">{d.label}</Text>
-                </div>
+                  </NavLink>
+              
               ))}
             </Suspense>
           </div>

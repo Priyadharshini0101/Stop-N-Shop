@@ -9,9 +9,11 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { HomePage, Cart, NotFound, Product, Products } from "./pages/index.js";
+import { HomePage, Cart, NotFound, Product, Products,Login } from "./pages/index.js";
+import {Toaster} from 'react-hot-toast'
 const router = createBrowserRouter(
   createRoutesFromElements(
+    <>
     <Route path="/" element={<Layout></Layout>}>
       <Route path="" element={<HomePage></HomePage>}></Route>
       <Route path="cart" element={<Cart />} />
@@ -24,9 +26,16 @@ const router = createBrowserRouter(
       <Route path="product_list" element={<Products></Products>}></Route>
       <Route path="*" element={<NotFound></NotFound>}></Route>
     </Route>
+    <Route path="/login" element={<Login></Login>}></Route>
+    
+   
+    </>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <>
+  <Toaster/>
   <RouterProvider router={router} />
+  </>
 );

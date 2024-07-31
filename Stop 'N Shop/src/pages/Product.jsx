@@ -12,7 +12,7 @@ import {
 import useDataContext from "../contexts/data";
 import { Helmet } from "react-helmet";
 import { white_shopping_cart, shopping_cart } from "../assets";
-
+import toast from 'react-hot-toast'
 function Product() {
   const { page, id } = useParams();
 
@@ -167,6 +167,8 @@ function Product() {
                   onClick={() => {
                     (product["0"].quantity = toCart),
                       setaddtocart(product["0"]);
+                      
+                  addToCart.findIndex((cart) => id === cart.id) === -1 ? toast.success("Added to cart"):toast.success("Removed from cart")
                   }}
                 >
                   {addToCart.findIndex((cart) => id === cart.id) === -1

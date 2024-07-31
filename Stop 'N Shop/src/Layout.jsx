@@ -62,6 +62,10 @@ import {
   pant7,
   pant8,
 } from "./assets/index.js";
+import { onAuthStateChanged } from "firebase/auth";
+import {auth} from './firebase.js'
+import {useNavigate } from "react-router-dom";
+
 
 const dataset = [
   {
@@ -630,6 +634,7 @@ function Layout() {
   const [header, setHeader] = useState(false);
   const [addToCart, setAddToCart] = useState([]);
   const [applyCode, setApplyCode] = useState(false);
+  const [category,setCategory] = useState("")
 
   const setapplycode = () => {
     setApplyCode(true);
@@ -638,6 +643,11 @@ function Layout() {
   const setheader = (value) => {
     setHeader(value);
   };
+
+  const setcategory = (category) => {
+    setCategory(category)
+  }
+
   const setaddtocart = (product) => {
     let copyCartList = [...addToCart];
     const index = copyCartList.findIndex((item) => item.id === product.id);
@@ -650,17 +660,33 @@ function Layout() {
     setAddToCart(copyCartList);
   };
 
+  const navigate = useNavigate()
+
   useEffect(() => {
+     
+    
     setData(dataset);
     const cart = JSON.parse(localStorage.getItem("cart"));
     if (cart && cart.length > 0) {
       setAddToCart(cart);
     }
+
+    onAuthStateChanged(auth, async(user)=>{
+      if(user){
+        console.log("Logged In")
+         navigate('/')
+      }else{
+        console.log("Logged Out")
+        navigate('/login')
+      }
+    })
   }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(addToCart));
   }, [addToCart]);
+  
+  
 
   return (
     <>
@@ -674,6 +700,8 @@ function Layout() {
           setaddtocart,
           applyCode,
           setapplycode,
+          category,
+          setcategory
         }}
       >
         <Header></Header>

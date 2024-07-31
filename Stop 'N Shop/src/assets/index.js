@@ -78,13 +78,14 @@ import warning from './Images/img_warning.png'
 import white_shopping_cart from './Images/img_white_shopping_cart.png'
 import close from './Images/img_close.png'
 import drop_down from './Images/img_dropdown.png'
+import mail from './Images/img_mail.svg'
 
 export {close,jacket,jacket1,jacket3,jacket4,jacket6,jacket7,jacket8,jacket9,jacket10,jacket11,jacket12,
 jacket13,jacket14,jacket15,jacket16,arrow,bag,bag1,bag2,broken,collection,collection1,credit_card,dress,dress1,dress2,
 dress3,dress4,dress5,dress6,dress11,dress13,dress14,dress7,dress8,dress9,facebook,instagram,logo,pant1,
 pant2,pant3,pants,scarf1,scarf2,shipping,shirt,shirt2,shirt3,shirt5,shirt6,shirt7,shirt8,shirt10,shirt9,
 shirt11,shirt12,shirt13,shirt14,shirt15,shirt16,shirt17,shoe1,shoe2,shoe3,shoe4,shoes,support,twitter,warning,white_search_icon,
-shopping_cart,pant4,pant5,pant6,pant7,pant8,white_shopping_cart,drop_down} 
+shopping_cart,pant4,pant5,pant6,pant7,pant8,white_shopping_cart,drop_down,mail} 
 
 
 

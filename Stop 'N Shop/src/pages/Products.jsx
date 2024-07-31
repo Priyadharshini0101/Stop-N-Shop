@@ -17,7 +17,7 @@ import { Suspense } from "react";
 import Pagination from "../components/Pagination.jsx";
 
 function Products() {
-  const { data, setheader } = useDataContext();
+  const { data, setheader,category } = useDataContext();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [numberOfPage, setNumberofPage] = useState(8);
@@ -36,7 +36,11 @@ function Products() {
   setheader(true);
 
   useEffect(() => {
-    window.scroll(0, 0);   
+    window.scroll(0, 0);
+    console.log(category) 
+    if(category !== ""){
+      setCategories(category)
+    }
   }, []);
 
   const handlePagination = (pageNumber) => {

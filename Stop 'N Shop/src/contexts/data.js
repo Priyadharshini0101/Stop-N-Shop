@@ -10,6 +10,8 @@ export const DataContext = createContext({
    setaddtocart:() => {},
    applyCode:false,
    setapplycode:() =>{},
+   category:"",
+   setcategory:() => {}
 })
 
 export const DataProvider = DataContext.Provider;
