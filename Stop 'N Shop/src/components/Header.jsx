@@ -38,7 +38,7 @@ function Header() {
   },[])
 
   return (
-    <header className=" flex items-center justify-center bg-white-A700 pb-[18px] pt-[17px]">
+    <header className=" flex items-center justify-center bg-white-A700 pb-[18px] pt-[17px]" onPointerLeave={() => setMenu(false)}>
       <div className="container-sm flex items-center justify-between gap-5 lg:p-5 md:flex-col md:p-5">
         <Img
           src={logo}
@@ -155,6 +155,7 @@ function Header() {
               value={searchBarValue}
               onChange={setSearchBarValue}
               variant="outline"
+              color="gray_800"
               suffix={
                 <div className="flex h-[48px] w-[48px] items-center justify-center hover:bg-gray-950">
                   {
@@ -174,13 +175,15 @@ function Header() {
                 <Img
                   src={shopping_cart}
                   alt="cart icon"
-                  className="h-[24px] w-[24px]"
+                  className="h-[24px] w-[24px]  hover:w-[28px] hover:h-[28px]"
                 ></Img>
               </NavLink>
             </a>
-            <div className="flex gap-[10px] items-center ">
-              <img src={mail}></img>
-           <Text className="!text-gray-800 !font-extrabold text-1xl text-transform: capitalize">{user ? user.name : "User"}</Text>
+            <div className="flex gap-[5px] items-center cursor-pointer " 
+                   onClick={() => setMenu((menu) => !menu)}
+                  >
+              <img src={mail} className=""></img>
+           <Text className="!text-gray-800 !font-extrabold  text-1xl text-transform: capitalize">{user ? user.name : ""}</Text>
            <img
                   src={drop_down}
                   className={`w-[16px] h-[16px] mt-[2.5px]
@@ -193,7 +196,6 @@ function Header() {
                   id="menu-button"
                   aria-expanded="true"
                   aria-haspopup="true"
-                   onClick={() => setMenu((menu) => !menu)}
                 ></img>
           </div>
 
@@ -201,11 +203,11 @@ function Header() {
          
      
         
-          <div class="relative inline-block top-[-25px] right-[-25px]">
+          <div class="relative inline-block top-[-25px] right-[-25px]"  onPointerLeave={() => setMenu(false)}>
              
              <div
              
-              onMouseOver={() => setMenu(true)}
+              // onMouseOver={() => setMenu(true)}
               className="transition duration-500 ease-in-out   absolute right-0 z-10 mt-2 w-40 origin-top-right top-[40px] bg-white-A700 shadow-md "
                role="menu"
                aria-orientation="vertical"

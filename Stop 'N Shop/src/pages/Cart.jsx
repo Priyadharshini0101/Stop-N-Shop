@@ -4,14 +4,19 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Text, Heading, Img, Button, Input } from "../components/index.js";
 import { createColumnHelper } from "@tanstack/react-table";
-import ReactTable from "../components/ReactTable.jsx";
-import { close } from "../assets/index.js";
+import ReactTable from "../components/ReactTable.jsx"; 
+import { close, shipping } from "../assets/index.js";
+import toast from "react-hot-toast";
+import NotFound from "./NotFound.jsx";
 
 function Cart() {
-  const { setheader, addToCart, setaddtocart, applyCode, setapplycode } =
+  const { setheader, addToCart, setaddtocart, applyCode, setapplycode,setaddtopurchase} =
     useDataContext();
   const [sum, setSum] = useState(0);
-
+  const [checkout,setCheckout] = useState(false)
+  const [completed ,setCompleted] = useState(false)
+  const [form,setForm]= useState(false)
+  
   const setTotal = () => {
     setSum(0);
 
@@ -37,6 +42,7 @@ function Cart() {
   }, [addToCart]);
 
   setheader(true);
+  console.log("form",form)
 
   const tableColumns = React.useMemo(() => {
     const tableColumnHelper = createColumnHelper();
@@ -70,7 +76,11 @@ function Cart() {
             ></Img>
           </div>
         ),
-        header: (info) => <div></div>,
+        header: (info) =>(
+          <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
+          Product Images
+        </Text>
+        ),
         meta: { width: "500px" },
       }),
       tableColumnHelper.accessor("quantity", {
@@ -108,7 +118,6 @@ function Cart() {
         ),
         meta: { width: "661px" },
       }),
-
       tableColumnHelper.accessor("id", {
         cell: (info) => (
           <div className="flex">
@@ -126,21 +135,6 @@ function Cart() {
                 )}
               </Text>
             </div>
-            <Img
-              src={close}
-              alt="Close"
-              className="h-[32px] w-[32px] sm:mr-[25px] sm:ml-[25px] sm:w-[24px] sm:h-[24px]"
-              onClick={() => {
-                const product = addToCart.filter(
-                  (item) => item.id === info.getValue("id")
-                );
-
-                setaddtocart(product["0"]);
-
-                let { price, quantity } = product["0"];
-                setSum((c) => c - Number(price) * Number(quantity));
-              }}
-            ></Img>
           </div>
         ),
         header: (info) => (
@@ -150,6 +144,38 @@ function Cart() {
         ),
         meta: { width: "661px" },
       }),
+      tableColumnHelper.accessor("id",{
+        cell: (info) => (
+          <div className="flex">
+          <div className="flex flex-1 justify-center gap-5 md:self-stretch">
+      <Img
+          src={close}
+          alt="Close"
+          className="h-[32px] w-[32px] sm:mr-[25px] sm:ml-[25px] sm:w-[24px] sm:h-[24px]"
+          onClick={() => {
+            const product = addToCart.filter(
+              (item) => item.id === info.getValue("id")
+            );
+
+            setaddtocart(product["0"]);
+
+            let { price, quantity } = product["0"];
+            setSum((c) => c - Number(price) * Number(quantity));
+            toast.success("Remove from Cart ")
+          }}
+        ></Img>
+        </div>
+        </div>
+        
+        ),
+        header: (info) => (
+   
+          <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
+            Remove
+          </Text>
+        ),
+        meta: { width: "661px" },
+      })
     ];
   }, [addToCart]);
 
@@ -182,15 +208,15 @@ function Cart() {
                 <Text
                   size="md"
                   as="p"
-                  className="flex h-[56px] w-[56px] items-center justify-center rounded-[28px] border-2 border-solid border-gray-800 text-center !text-gray-800"
+                  className={`flex h-[56px] w-[56px] items-center justify-center rounded-[28px] border-2 border-solid ${!checkout ? `border-gray-800 text-center !text-gray-800`:`border-blue_gray-100 text-center !text-blue_gray-100`}`}
                 >
                   1
                 </Text>
-                <Text size="md" as="p" className=" !text-gray-800">
+                <Text size="md" as="p" className={` ${!checkout ? `!text-gray-800`: `!text-blue_gray-100`}`}>
                   Shopping Cart
                 </Text>
               </div>
-              <div className="h-[2px] w-[50%] mt-[5px]  bg-gray-800 md:self-stretch"></div>
+              <div className={`h-[2px] w-[50%] mt-[5px] ${!checkout ? `bg-gray-800` : `bg-blue_gray-100` } md:self-stretch`}></div>
             </div>
 
             <div className="flex w-[40%] h-[50px] items-center justify-center gap-[25px] md:w-full md:flex-col">
@@ -198,26 +224,26 @@ function Cart() {
                 <Text
                   size="md"
                   as="p"
-                  className="flex h-[56px] w-[56px] items-center justify-center rounded-[28px] border-2 border-solid border-blue_gray-100 text-center !text-blue_gray-100"
+                  className={`flex h-[56px] w-[56px] items-center justify-center rounded-[28px] border-2 border-solid border-blue_gray-100 text-center !text-blue_gray-100 ${checkout && !completed ? `border-gray-800 text-center !text-gray-800`:`border-blue_gray-100 text-center !text-blue_gray-1`}`}
                 >
                   2
                 </Text>
-                <Text size="md" as="p" className=" !text-blue_gray-100">
+                <Text size="md" as="p" className={`${checkout && !completed ? `!text-gray-800`: `!text-blue_gray-100`}`}>
                   Checkout
                 </Text>
               </div>
-              <div className="h-[2px] w-[50%] mt-[5px] bg-blue_gray-100"></div>
+              <div className={`h-[2px] w-[50%] mt-[5px] ${checkout && !completed ? `bg-gray-800` :`bg-blue_gray-100`}`}></div>
             </div>
             <div className="flex w-[20%] h-[50px] items-center  gap-[25px] md:w-full md:flex-col">
               <div className="flex items-center justify-center gap-5 md:w-full">
                 <Text
                   size="md"
                   as="p"
-                  className="flex h-[56px] w-[56px] items-center justify-center rounded-[28px] border-2 border-solid border-blue_gray-100 text-center !text-blue_gray-100"
+                  className={`flex h-[56px] w-[56px] items-center justify-center rounded-[28px] border-2 border-solid border-blue_gray-100 text-center !text-blue_gray-100 ${completed ? `border-gray-800 text-center !text-gray-800`:`border-blue_gray-100 text-center !text-blue_gray-1`}`}
                 >
                   3
                 </Text>
-                <Text size="md" as="p" className="!text-blue_gray-100">
+                <Text size="md" as="p" className={`${completed ? `!text-gray-800`: `!text-blue_gray-100`}`}>
                   Completed
                 </Text>
               </div>
@@ -225,9 +251,9 @@ function Cart() {
           </div>
         </div>
 
-        <div className="flex flex-col items-end gap-[79px] lg:gap-[79px] md:gap-[59px] sm:gap-[39px]">
+       { !checkout ? <div className="flex flex-col items-end gap-[79px] lg:gap-[79px] md:gap-[59px] sm:gap-[39px]">
           <div className="flex flex-col gap-[30px] self-stretch">
-            <div>
+          {addToCart.length > 0 ? <div>
               <ReactTable
                 size="xs"
                 bodyProps={{ className: "" }}
@@ -237,13 +263,13 @@ function Cart() {
                 className="md:whitespace-nowrap md:block md:overflow-x-auto"
                 data={addToCart}
               ></ReactTable>
-            </div>
+            </div>:<NotFound title="No Items Added"></NotFound>}
             <div className="flex items-center justify-between gap-5 md:flex-col">
               <div className="flex gap-0.5  items-center justify-between md:justify-start md:gap-[50px] xs:gap-[5px] xs:justify-center p-4 md:w-full">
                 <Input
                   placeholder="Enter coupon code"
                   className=" !text-gray-800"
-                  value="discount"
+                  
                   onChange={(e) => setDiscount(Number(e.target.value))}
                 ></Input>
                 <Button
@@ -289,13 +315,140 @@ function Cart() {
                   size="xs"
                   shape="square"
                   className="min-w-[171px]  font-medium lg:text-[15px] sm:px-4"
+                  onClick={() => {addToCart.length > 0 ? setCheckout(true) : toast("No items in the cart")}}
                 >
                   Checkout
                 </Button>
               </div>
             </div>
           </div>
-        </div>
+        </div> : !completed && checkout ? 
+
+    <form  className="flex items-center justify-between gap-60 md:flex-col px-24" onSubmit={() => {setCompleted(true);
+                                                                                                 setaddtopurchase()}}>
+              <div className="flex justify-center flex-col md:w-full gap-8">
+              
+                <Input 
+                variant="underline"
+                shape="square"
+                disabled
+                name="Buyer Info Title"
+                placeholder="Buyer Info"
+                className="!font-medium !w-full "></Input>
+                <div className="flex  flex-col items-start  gap-4">
+                  <Text as="p"> Full Name </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="text" required  ></Input>
+               </div>
+               <div className="flex flex-col items-start gap-4">
+                  <Text as="p"> Address </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="text" required></Input>
+               </div>
+               <div className="flex flex-col items-start gap-4">
+                  <Text as="p"> Contact </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="number" required></Input>
+               </div>
+               <div className="flex flex-col items-start gap-4">
+                  <Text as="p"> City </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="text" required></Input>
+               </div>
+              <div className="flex gap-[10px]">
+              <div className="flex flex-col items-start gap-4">
+                  <Text as="p"> State </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[290px]" type="text" required></Input>
+               </div>
+               <div className="flex flex-col items-start gap-4">
+                  <Text as="p">Zip Code</Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[200px]" type="number" required></Input>
+               </div>
+                </div>               
+              </div>
+              <div className="flex w-full  flex-col md:w-full gap-8">
+              <Input 
+                variant="underline"
+                shape="square"
+                disabled
+                name="Paymet Title"
+                placeholder="Payment Method"
+                className="!font-medium !w-full "></Input>
+                <div className="mt-[31px] flex gap-[15px] self-stretch md:flex-col">
+                <Button
+                color="blue_gray_100"
+                size="lg"
+                variant="outline"
+                shape="square"
+                leftIcon={<Img src={shipping} alt="Card" className="w-[20px] h-[20px]"></Img>}
+                className="w-[160px] h-[80px] text-[14px] gap-2 border border-gray-500">Credit Card</Button>
+                  <Button
+                color="blue_gray_100"
+                size="lg"
+                variant="outline"
+                shape="square"
+                leftIcon={<Img src={shipping} alt="Card" className="w-[20px] h-[20px]"></Img>}
+                className="w-[160px] h-[80px] text-[14px] text-white-A700 bg-gray-800 gap-2 border-gray-500 border">Bank Transfer</Button>
+                  <Button
+                color="blue_gray_100"
+                size="lg"
+                variant="outline"
+                shape="square"
+               leftIcon={<Img src={shipping} alt="Card" className="w-[20px] h-[20px]"></Img>}
+                className="w-[160px] h-[80px] text-[14px]  border border-gray-500 gap-2">Paypal</Button> </div>
+                <div className="flex  flex-col items-start gap-4 ">
+                  <Text as="p"> Name on Card </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" required></Input>
+               </div>
+               <div className="flex gap-[10px]">
+              <div className="flex flex-col items-start gap-4">
+                  <Text as="p"> Card Number </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[290px]" required></Input>
+               </div>
+               <div className="flex flex-col items-start gap-4">
+                  <Text as="p">CVV</Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[200px]" required></Input>
+               </div>
+                </div>    
+                <div className="flex gap-[10px]">
+              <div className="flex flex-col items-start gap-4">
+                  <Text as="p"> Month </Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[245px]" required></Input>
+               </div>
+               <div className="flex flex-col items-start gap-4">
+                  <Text as="p">Year</Text>
+                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[245px]"  required></Input>
+               </div>
+     
+                </div> 
+                <div className="flex  justify-end gap-4 md:justify-center">
+  
+                <Button
+                  size="xs"
+                  shape="square"
+                  type="submit"
+                  className="min-w-[171px] mt-4 font-medium lg:text-[15px] sm:px-4"
+                  // onClick={() => {{ form ?  setCompleted(true) : toast("Fill the form")}
+                  // // {completed ?  setaddtopurchase(addToCart) : toast("")}
+                  // }}
+                >
+                  Checkout
+                </Button>
+              </div>
+              
+             
+                </div>
+                </form>
+                
+           :
+            <div className=" flex justify-center  flex-col items-center w-full md:w-full">
+            <Heading size="md" as="h1" className="text-[48px] ">
+              Checkout Complete!
+            </Heading>
+            <Text as="p" className="mt-8 w-[35%] text-[18px] text-center leading-8 !text-gray-800">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor idcididunt ut labore et dolore magna aliqua. {" "}
+            </Text>
+            <Link to="/"><Button size="xs" shape="square" className="mt-8 min-w-[245px] font-medium">
+              Go Shopping Again
+            </Button>
+            </Link>
+            </div>}
       </div>
     </>
   );

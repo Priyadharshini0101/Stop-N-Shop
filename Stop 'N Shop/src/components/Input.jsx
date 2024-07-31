@@ -6,17 +6,29 @@ const shapes = {
 
 const variants = {
   outline: {
-    blue_gray_100: "border-gray-800 border border-solid border-[1px]",
-    white_A700: "border-white-A700 border border-solid border-[1px]",
+    blue_gray_100: " border border-gray-500  border-solid ",
+    white_A700: "border-white-A700 border border-solid",
+    gray_800: "border-gray-800 border  border-solid ",
+   
   },
+  underline:{
+    blue_gray_100:"text-gray-800 border-b border-blue_gray-100 border-solid"
+  }
 };
+
+// cons sizes= {
+//   sm:"h-[57px] text-[18px]",
+//   xs:"h-[48px] text-[18px]",
+//   lg:"h-[60px]",
+//   md:"h-[40px]  text-[18px]"
+// }
 
 function Input({
   className = " ",
   name = "",
   placeholder = "",
   type = "",
-  label = "",
+  label,
   prefix,
   suffix,
   background = "bg-gray-800",
@@ -25,13 +37,13 @@ function Input({
   color = "blue_gray_100",
   setSearchBarValue,
   searchBarValue,
+  ...restProps
 }) {
   return (
     <label
       className={`${background} flex items-center justify-center cursor-text ${
         (shape && shapes[shape]) || ""
-      } ${variants[variant]?.[color] || variants[variant] || ""}`}
-    >
+      }  ${variants[variant]?.[color] || variants[variant] || ""}`}>
       {!!label && label}
       {!!prefix && prefix}
 
@@ -39,10 +51,11 @@ function Input({
         name={name}
         value={searchBarValue}
         type={type}
-        onChange={(e) => setSearchBarValue(e.target.value)}
+        // onChange={(e) => setSearchBarValue(e.target.value)}
         placeholder={placeholder}
-        className={`${className} h-[48px] rounded-[0px] bg-white-A700 text-gray-800 pl-4 text-lg`}
-      ></input>
+        className={`${className} h-[48px]  bg-white-A700 text-gray-800 pl-4 text-lg`}
+        {...restProps}
+         ></input>
       {!!suffix && suffix}
     </label>
   );

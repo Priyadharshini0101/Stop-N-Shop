@@ -15,6 +15,7 @@ import Checkbox from "../components/Checkbox.jsx";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { Suspense } from "react";
 import Pagination from "../components/Pagination.jsx";
+import NotFound from "./NotFound.jsx";
 
 function Products() {
   const { data, setheader,category } = useDataContext();
@@ -339,9 +340,9 @@ function Products() {
                 <Text as="p" className="!font-medium">
                   <span className="text-gray-500">Viewing&nbsp;</span>
                   <span className="text-gray-800">
-                    {currentPage === Math.ceil(postsPerPage.length / 8)
+            {postsPerPage.length > 0  ? currentPage === Math.ceil(postsPerPage.length / 8)
                       ? postsPerPage.length % 8
-                      : currentPage * 8}
+                      : currentPage * 8 : 0}
                   </span>
                   <span className="text-gray-500">&nbsp;of&nbsp;</span>
                   <span className="text-gray-500">
@@ -388,7 +389,7 @@ function Products() {
               <div className="flex flex-col justify-center items-center overflow-hidden">
                 <div className="grid grid-cols-4 grid-rows-2 gap-8  md:flex-col md:grid-cols-3   sm:grid-cols-2 xs:grid-cols-1">
                   <Suspense fallback={<div>Loading feed...</div>}>
-                    {postsPerPage.map((i, index) =>
+                    {postsPerPage.length > 0 ? postsPerPage.map((i, index) =>
                       index < numberOfPage && index >= numberOfPage - 8 ? (
                         <>
                           <Template
@@ -408,7 +409,8 @@ function Products() {
                       ) : (
                         ""
                       )
-                    )}
+                    ):
+                    <NotFound title="No Items Found"></NotFound>}
                   </Suspense>
                 </div>
                 <Pagination

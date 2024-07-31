@@ -11,7 +11,9 @@ export const DataContext = createContext({
    applyCode:false,
    setapplycode:() =>{},
    category:"",
-   setcategory:() => {}
+   setcategory:() => {},
+   addToPurchase:[],
+   setaddtopurchase:() => {},
 })
 
 export const DataProvider = DataContext.Provider;

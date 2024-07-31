@@ -31,7 +31,7 @@ function ReactTable({
         {table.getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <th key={header.id} {...header.column.columnDef?.meta}>
+              <th key={header.id} {...header.column.columnDef?.meta} className="border border-gray-800 ">
                 {header.isPlaceholder
                   ? null
                   : flexRender(
@@ -51,7 +51,7 @@ function ReactTable({
             key={row.id}
           >
             {row.getVisibleCells().map((cell) => (
-              <td key={cell.id} className={size ? sizes[size] : ``}>
+              <td key={cell.id} className={`${size ? sizes[size] : ``} border border-gray-800`}>
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
             ))}

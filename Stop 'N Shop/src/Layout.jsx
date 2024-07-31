@@ -635,6 +635,7 @@ function Layout() {
   const [addToCart, setAddToCart] = useState([]);
   const [applyCode, setApplyCode] = useState(false);
   const [category,setCategory] = useState("")
+  const [addToPurchase,setAddToPurchase] = useState([])
 
   const setapplycode = () => {
     setApplyCode(true);
@@ -646,6 +647,19 @@ function Layout() {
 
   const setcategory = (category) => {
     setCategory(category)
+  }
+
+  const setaddtopurchase = (product) => {
+    const copyPurchaseList = [...addToPurchase]
+    const copyCartList = [...addToCart]
+
+    copyCartList.map((cart) => {
+      copyPurchaseList.push(cart)
+    })
+    
+    // copyPurchaseList.push(copyCartList)
+    setAddToCart([]);
+    setAddToPurchase(copyPurchaseList)
   }
 
   const setaddtocart = (product) => {
@@ -701,7 +715,9 @@ function Layout() {
           applyCode,
           setapplycode,
           category,
-          setcategory
+          setcategory,
+          addToPurchase,
+          setaddtopurchase
         }}
       >
         <Header></Header>

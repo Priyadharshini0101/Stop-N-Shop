@@ -25,11 +25,10 @@ const router = createBrowserRouter(
         {/* <Route path="product_list" element={<Products></Products>}></Route> */}
       </Route>
       <Route path="product_list" element={<Products></Products>}></Route>
+    <Route path="/purchases" element={<Purchases></Purchases>}></Route>
       <Route path="*" element={<NotFound></NotFound>}></Route>
     </Route>
     <Route path="/login" element={<Login></Login>}></Route>
-    <Route path="/purchases" element={<Purchases></Purchases>}></Route>
-    
    
     </>
   )
