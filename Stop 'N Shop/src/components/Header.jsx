@@ -222,6 +222,7 @@ function Header() {
                
                  
                  <div className="flex gap-[10px] py-[1%] px-[10%]">
+                  <NavLink to="/purchases">
                  <a
                      href="#"
                      class="text-[14px] hover:font-bold py-[4%] text-left"
@@ -231,7 +232,7 @@ function Header() {
                    >
                     Purchases
                    </a>
-               
+                   </NavLink>
                  </div>
                    
 
