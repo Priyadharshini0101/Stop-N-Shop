@@ -8,6 +8,7 @@ import ReactTable from "../components/ReactTable.jsx";
 import { close, shipping,paypal,credit_card_payment, bank_transfer } from "../assets/index.js";
 import toast from "react-hot-toast";
 import NotFound from "./NotFound.jsx";
+import Select from 'react-select'
 
 function Cart() {
   const { setheader, addToCart, setaddtocart, applyCode, setapplycode,setaddtopurchase} =
@@ -16,6 +17,31 @@ function Cart() {
   const [checkout,setCheckout] = useState(false)
   const [completed ,setCompleted] = useState(false)
   const [paymentMethod,setPaymentMethod] = useState("")
+  const countries = [ { value: 'India', label: 'India' },
+    { value: 'United States of America', label: 'United States of America' },
+    { value: 'Europe', label: 'Europe' }];
+  const months = [{
+    value:1,label:'January'},
+    {value:2,label:'Febuary'},
+    {value:3,label:'March'},
+    {value:4,label:'April'},
+    {value:5,label:'May'},
+    {value:6,label:'June'},
+    {value:7,label:'July'},
+    {value:8,label:'August'},
+    {value:9,label:'September'},
+    {value:10,label:'October'},
+    {value:11,label:'November'},
+    {value:12,label:'December'},
+  ]
+
+  const years = [
+    {value:2024,label:'2024'},
+    {value:2025,label:'2025'},
+    {value:2026,label:'2026'},
+    {value:2027,label:'2027'}, 
+  ]
+  const [select,setSelect] = useState(null)
   
   
   const setTotal = () => {
@@ -366,7 +392,13 @@ function Cart() {
               <div className="flex gap-[10px]">
               <div className="flex flex-col items-start gap-4">
                   <Text as="p"> State </Text>
-                  <Input  variant="outline" shape="square" name="State Input" className="w-[290px]" type="text" required></Input>
+                  <Select
+                  defaultValue={select}
+                  onChange={setSelect}
+                  className="w-[290px] "
+                  classNamePrefix="py-[3px] " 
+                  options={countries} required></Select>
+                  {/* <Input  variant="outline" shape="square" name="State Input"type="text" required></Input> */}
                </div>
 
                <div className="flex flex-col items-start gap-4">
@@ -436,12 +468,25 @@ function Cart() {
                 <div className="flex gap-[10px]">
               <div className="flex flex-col items-start gap-4">
                   <Text as="p"> Month </Text>
-                  <Input  variant="outline" shape="square" name="Month Input" className="w-[245px]" required></Input>
+                  <Select
+                  defaultValue={select}
+                  onChange={setSelect}
+                  className="w-[250px] "
+                  classNamePrefix="py-[3px] " 
+                  options={months} required></Select>
+                 
+                  {/* <Input  variant="outline" shape="square" name="Month Input" className="w-[245px]" required></Input> */}
                </div>
                <div className="flex flex-col items-start gap-4">
                   <Text as="p">Year</Text>
-                  <Input  variant="outline" shape="square" name="Year Input" className="w-[245px]"  required></Input>
-               </div>
+                  
+                  <Select
+                  defaultValue={select}
+                  onChange={setSelect}
+                  className="w-[250px] "
+                  classNamePrefix="py-[3px] " 
+                  options={years} required></Select>
+              </div>
      
                 </div> 
                 <div className="flex  justify-end gap-4 md:justify-center">
