@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Text, Heading, Img, Button, Input } from "../components/index.js";
 import { createColumnHelper } from "@tanstack/react-table";
 import ReactTable from "../components/ReactTable.jsx"; 
-import { close, shipping } from "../assets/index.js";
+import { close, shipping,paypal,credit_card_payment, bank_transfer } from "../assets/index.js";
 import toast from "react-hot-toast";
 import NotFound from "./NotFound.jsx";
 
@@ -15,7 +15,8 @@ function Cart() {
   const [sum, setSum] = useState(0);
   const [checkout,setCheckout] = useState(false)
   const [completed ,setCompleted] = useState(false)
-  const [form,setForm]= useState(false)
+  const [paymentMethod,setPaymentMethod] = useState("")
+  
   
   const setTotal = () => {
     setSum(0);
@@ -42,7 +43,6 @@ function Cart() {
   }, [addToCart]);
 
   setheader(true);
-  console.log("form",form)
 
   const tableColumns = React.useMemo(() => {
     const tableColumnHelper = createColumnHelper();
@@ -335,31 +335,49 @@ function Cart() {
                 name="Buyer Info Title"
                 placeholder="Buyer Info"
                 className="!font-medium !w-full "></Input>
+
                 <div className="flex  flex-col items-start  gap-4">
                   <Text as="p"> Full Name </Text>
                   <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="text" required  ></Input>
                </div>
+
                <div className="flex flex-col items-start gap-4">
                   <Text as="p"> Address </Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="text" required></Input>
+                  <Input  variant="outline" shape="square" name="Address Input" className="w-[500px]" type="text" required></Input>
                </div>
+        
                <div className="flex flex-col items-start gap-4">
                   <Text as="p"> Contact </Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="number" required></Input>
+                  <Input  variant="outline"  
+                 shape="square" name="Contact Input" className="w-[500px]" type="text" 
+                 pattern="[0-9]{10}"
+                 minLength={10}
+                 maxLength={10}
+                 onInput={(e) => e.target.value = e.target.value.replace(/\D+/g, '')}
+                 required></Input>
                </div>
+
+
                <div className="flex flex-col items-start gap-4">
                   <Text as="p"> City </Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" type="text" required></Input>
+                  <Input  variant="outline" shape="square" name="City Input" className="w-[500px]" type="text" required></Input>
                </div>
+
               <div className="flex gap-[10px]">
               <div className="flex flex-col items-start gap-4">
                   <Text as="p"> State </Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[290px]" type="text" required></Input>
+                  <Input  variant="outline" shape="square" name="State Input" className="w-[290px]" type="text" required></Input>
                </div>
+
                <div className="flex flex-col items-start gap-4">
                   <Text as="p">Zip Code</Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[200px]" type="number" required></Input>
+                  <Input  variant="outline" shape="square" name="Zip Code Input" pattern="[0-9]{6}" className="w-[200px]" type="text"
+                 
+                           minLength={6}
+                           maxLength={6}
+                           onInput={(e) => e.target.value = e.target.value.replace(/\D+/g, '')} required></Input>
                </div>
+
                 </div>               
               </div>
               <div className="flex w-full  flex-col md:w-full gap-8">
@@ -376,44 +394,53 @@ function Cart() {
                 size="lg"
                 variant="outline"
                 shape="square"
-                leftIcon={<Img src={shipping} alt="Card" className="w-[20px] h-[20px]"></Img>}
-                className="w-[160px] h-[80px] text-[14px] gap-2 border border-gray-500">Credit Card</Button>
+                onClick={() => setPaymentMethod("Credit Card")}
+                leftIcon={<Img src={credit_card_payment} alt="Card" className="w-[20px] h-[20px]"></Img>}
+                className={` ${paymentMethod === "Credit Card" ?`bg-gray-200`:``} w-[160px] h-[80px] text-[14px] gap-2 border border-gray-500 hover:bg-gray-200`}>Credit Card</Button>
                   <Button
                 color="blue_gray_100"
                 size="lg"
                 variant="outline"
                 shape="square"
-                leftIcon={<Img src={shipping} alt="Card" className="w-[20px] h-[20px]"></Img>}
-                className="w-[160px] h-[80px] text-[14px] text-white-A700 bg-gray-800 gap-2 border-gray-500 border">Bank Transfer</Button>
+                onClick={() => setPaymentMethod("Bank Transfer") }
+                leftIcon={<Img src={bank_transfer} alt="Card" className="w-[20px] h-[20px]"></Img>}
+              className={` ${paymentMethod === "Bank Transfer" ?`bg-gray-200`:``} w-[160px] h-[80px] text-[14px] gap-2 border-gray-500 border hover:bg-gray-200`}>Bank Transfer</Button>
                   <Button
                 color="blue_gray_100"
                 size="lg"
                 variant="outline"
                 shape="square"
-               leftIcon={<Img src={shipping} alt="Card" className="w-[20px] h-[20px]"></Img>}
-                className="w-[160px] h-[80px] text-[14px]  border border-gray-500 gap-2">Paypal</Button> </div>
+                onClick={() => setPaymentMethod("Paypal")}
+               leftIcon={<Img src={paypal} alt="Card" className="w-[20px] h-[20px]"></Img>}
+                className={`  ${paymentMethod === "Paypal" ?`bg-gray-200`:``}  w-[160px] h-[80px] text-[14px]  border border-gray-500 gap-2 hover:bg-gray-200`}>Paypal</Button> </div>
                 <div className="flex  flex-col items-start gap-4 ">
                   <Text as="p"> Name on Card </Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[500px]" required></Input>
+                  <Input  variant="outline" shape="square" name="Name on Card Input" type="text" className="w-[500px]" required></Input>
                </div>
                <div className="flex gap-[10px]">
               <div className="flex flex-col items-start gap-4">
                   <Text as="p"> Card Number </Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[290px]" required></Input>
+                  <Input  variant="outline" shape="square" name="Card Number Input" className="w-[290px]"
+                  
+                  onInput={(e) => e.target.value = e.target.value.replace(/\D+/g, '')} 
+                  type="text"  pattern="[0-9]{16}" 
+         maxlength={16} required></Input>
                </div>
                <div className="flex flex-col items-start gap-4">
                   <Text as="p">CVV</Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[200px]" required></Input>
+                  <Input  variant="outline" shape="square" name="CVV Input"    type="text"  pattern="[0-9]{3}" 
+         maxlength={3} 
+         onInput={(e) => e.target.value = e.target.value.replace(/\D+/g, '')}  className="w-[200px]" required></Input>
                </div>
                 </div>    
                 <div className="flex gap-[10px]">
               <div className="flex flex-col items-start gap-4">
                   <Text as="p"> Month </Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[245px]" required></Input>
+                  <Input  variant="outline" shape="square" name="Month Input" className="w-[245px]" required></Input>
                </div>
                <div className="flex flex-col items-start gap-4">
                   <Text as="p">Year</Text>
-                  <Input  variant="outline" shape="square" name="Full Name Input" className="w-[245px]"  required></Input>
+                  <Input  variant="outline" shape="square" name="Year Input" className="w-[245px]"  required></Input>
                </div>
      
                 </div> 
@@ -424,9 +451,6 @@ function Cart() {
                   shape="square"
                   type="submit"
                   className="min-w-[171px] mt-4 font-medium lg:text-[15px] sm:px-4"
-                  // onClick={() => {{ form ?  setCompleted(true) : toast("Fill the form")}
-                  // // {completed ?  setaddtopurchase(addToCart) : toast("")}
-                  // }}
                 >
                   Checkout
                 </Button>
