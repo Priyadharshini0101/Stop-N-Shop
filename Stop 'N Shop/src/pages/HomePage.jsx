@@ -167,7 +167,8 @@ function HomePage() {
                   
                        onClick={() => setcategory(d.alt)}
                          
-                       className="flex w-full flex-col items-center gap-[7px] bg-gray-50 px-9   pb-[46px]  pt-9 md:pb-5 sm:p-4 hover:bg-gray-200 "
+                       className="flex w-full flex-col items-center gap-[7px] bg-gray-50 px-9   pb-[46px]  pt-9 md:pb-5 sm:p-4 hover:bg-gray-200
+                       transition duration-300 hover:scale-110 hover:rotate-6"
                  >
                   <Img
                     src={d.image}

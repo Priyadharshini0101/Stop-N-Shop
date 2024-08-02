@@ -11,14 +11,11 @@ function Purchases() {
   const {setheader,addToPurchase} = useDataContext()
   const [total,setTotal] = useState(0)
   setheader(true)
-  console.log(addToPurchase)
   useEffect(() =>{
     const sum = 0;
-    console.log(addToPurchase)
     addToPurchase.map((purchase) =>{
         setTotal((total) => total + (purchase.price * purchase.quantity))
     })
-    console.log(total)
   },[])
   const tableColumns = React.useMemo(() => {
     const tableColumnHelper = createColumnHelper();
@@ -133,12 +130,7 @@ function Purchases() {
         ></ReactTable>
       </div> : <NotFound title="No Purchases"></NotFound>}
               <div className="flex flex-col items-end justify-end mx-12 md:justify-end gap-[50px] lg:w-full md:w-full xs:flex-col xs:gap-[5px]">
-                
-              {/* <div className="flex justify-end   w-full  gap-4">
-                <Text as="p" className="!font-bold !text-gray-800 text-3xl">
-                Total Spent :             { `$` + total}
-                </Text>
-              </div> */}
+
               
               <div className="flex flex-col items-end w-full  gap-4">
                 <Text as="p" className="!font-medium">

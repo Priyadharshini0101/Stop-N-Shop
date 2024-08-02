@@ -32,7 +32,7 @@ function Footer() {
                   placeholder={`Enter your email`}
                   color="white_A700"
                   suffix={
-                    <div className="flex h-[48px] w-[48px] items-center justify-center hover:bg-gray-950">
+                    <div className="flex h-[48px] w-[48px] items-center justify-center hover:bg-gray-600 bg-gray-800">
                       {
                         <a href="#">
                           <Img

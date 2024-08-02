@@ -35,7 +35,6 @@ function Input({
   shape,
   variant = "outline",
   color = "blue_gray_100",
-  setSearchBarValue,
   searchBarValue,
   ...restProps
 }) {
@@ -50,7 +49,8 @@ function Input({
       <input
         name={name}
         value={searchBarValue}
-        type={type}    // onChange={(e) => setSearchBarValue(e.target.value)}
+        type={type}   
+        // onChange={(e) => setSearchBarValue(e.target.value)}
         placeholder={placeholder}
         className={`${className} h-[48px]  bg-white-A700 text-gray-800 pl-4 text-lg`}
         {...restProps}

@@ -69,9 +69,9 @@ function Login() {
         <div className="w-full h-screen justify-start">
         <div className="h-[100vh] px-[20%] py-[8%] sm:px-[10%] xs:px-[5%] xs:py-[2%] sm:py-[4%]  items-center justify-center ">
         <div className="flex flex-col  w-[100%] max-w-[450px] sm:max-w-[400px] rounded-lg p-[64px] sm:p-[48px] xs:p-[32px]">
-          <h1 className="text-gray-800 text-[32px] sm:text-[24px] xs:text-[20px]  font-semibold mb-[28px] sm:mb-[14px] xs:mb-[12px] ">
+          <Text as="h1" className="text-gray-800 text-[32px] sm:text-[24px] xs:text-[20px]  font-semibold mb-[28px] sm:mb-[14px] xs:mb-[12px] ">
             {signState == "Sign In" ? "Sign Up" : "Sign In"}
-          </h1>
+          </Text>
 
           <form className="flex flex-col gap-[25px] sm:gap-[10px]">
             {signState == "Sign In" ? (
@@ -99,21 +99,21 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             ></input>
-            <button type="submit" onClick={user_auth} className="mt-[20px] sm:mt-[10px] xs:mt-[5px] cursor-pointer w-[100%] border-0 outline-0 p-[16px] sm:p-[14px] xs:p-[12px] bg-gray-800 hover:bg-gray-950 text-white-A700 rounded-lg text-[16px] ">
+            <Button type="submit" onClick={user_auth} className="mt-[20px] sm:mt-[10px] xs:mt-[5px] cursor-pointer w-[100%] border-0 outline-0 p-[16px] sm:p-[14px] xs:p-[12px] bg-gray-800 hover:bg-gray-950 text-white-A700 rounded-lg text-[16px] ">
               {signState == "Sign In" ? "Sign Up" : "Sign In"}
-            </button>
+            </Button>
             <div className="flex items-cener justify-between text-[13px]">
               <div className="flex items-center gap-[5px]">
                 <input className=" w-[18px] h-[18px] sm:w-[14px] xs:w-[12px] sm:h-[14px] xs:h-[12px]" type="checkbox"></input>
                 <label htmlFor="" className="text-black-900_68 hover:text-gray-800">Remember Me</label>
               </div>
-              <p className="cursor-pointer text-black-900_68 hover:text-gray-800">Need Help?</p>
+              <Text as="p" className="cursor-pointer text-black-900_68 hover:text-gray-800">Need Help?</Text>
             </div>
           </form>
           <div className="mt-[40px] sm:mt-[30px] xs:mt-[20px]  ">
             {signState  == "Sign In"? (
             
-              <p className="sm:text-[14px] xs:text-[12px] text-black-900_68">
+              <Text as="p" className="sm:text-[14px] xs:text-[12px] text-black-900_68">
                 Don't have an account?{" "} 
                 <span
                   className="ml-[6px] text-gray-800 hover:text-gray-500 font-semibold cursor-pointer"
@@ -123,12 +123,12 @@ function Login() {
                 > 
                Sign Up
                 </span>
-                </p> 
+                </Text> 
           
                
              
             ) : (
-              <p className="sm:text-[14px] xs:text-[12px] text-black-900_68">
+              <Text as="p" className="sm:text-[14px] xs:text-[12px] text-black-900_68">
                 Already have a account?{" "}
                 <span
                   className=" ml-[6px] text-gray-800 hover:text-gray-500 font-semibold cursor-pointer"
@@ -138,7 +138,7 @@ function Login() {
                 >
                   Sign In
                 </span>
-              </p>
+              </Text >
             )}{" "}
           </div>
           

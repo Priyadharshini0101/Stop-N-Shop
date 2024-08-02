@@ -177,7 +177,7 @@ function Cart() {
       <Img
           src={close}
           alt="Close"
-          className="h-[32px] w-[32px] sm:mr-[25px] sm:ml-[25px] sm:w-[24px] sm:h-[24px]"
+          className="h-[32px] w-[32px] hover:w-[36px] hover:h-[36px] sm:mr-[25px] sm:ml-[25px] sm:w-[24px] sm:h-[24px]"
           onClick={() => {
             const product = addToCart.filter(
               (item) => item.id === info.getValue("id")

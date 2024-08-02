@@ -18,8 +18,8 @@ const variants = {
       "border-gray-800 border border-solid text-gray-800 hover:bg-gray-200",
   },
   fill: {
-    gray_800: "bg-gray-800 text-white-A700 hover:bg-gray-950",
-    white_A700_1: "bg-gray-100 text-black hover:bg-gray-200",
+    gray_800: "bg-gray-800 text-white-A700 hover:bg-gray-600",
+    white_A700_1: "bg-gray-100 text-black hover:bg-gray-300",
   },
 };
 

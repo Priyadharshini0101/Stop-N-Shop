@@ -9,7 +9,7 @@ function Section({ heading, className = "" }) {
         <Heading as="h2" className="md:text-3xl sm:text-[28px]">
           {heading}
         </Heading>
-        <Link to="/product_list">
+        <Link to={`/product_list`}>
           <a href="#" className={` ${className}`}>
             <Text
               as="p"

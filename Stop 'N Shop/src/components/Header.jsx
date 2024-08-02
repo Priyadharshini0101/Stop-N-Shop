@@ -152,18 +152,18 @@ function Header() {
             <Input
               name="Search Field"
               placeholder={`Search here`}
-              value={searchBarValue}
-              onChange={setSearchBarValue}
+              // value={searchBarValue}
+              // onChange={() => setSearchBarValue(e)}
               variant="outline"
               color="gray_800"
               suffix={
-                <div className="flex h-[48px] w-[48px] items-center justify-center hover:bg-gray-950">
+                <div className="flex h-[48px] w-[48px] items-center justify-center hover:bg-gray-600 bg-gray-800">
                   {
                     <a href="#">
                       <Img
                         src={white_search_icon}
                         alt="search icon"
-                        className="h-[24px] w-[24px] cursor-pointer  "
+                        className="h-[24px] w-[24px] cursor-pointer"
                       ></Img>
                     </a>
                   }

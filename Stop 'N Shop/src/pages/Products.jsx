@@ -38,10 +38,13 @@ function Products() {
 
   useEffect(() => {
     window.scroll(0, 0);
-    console.log(category) 
-    if(category !== ""){
+    // console.log(category)
+    // console.log(categories)
+    // if(category !== null){
       setCategories(category)
-    }
+    // }else{
+    //   setCategories("")
+    // }
   }, []);
 
   const handlePagination = (pageNumber) => {
@@ -143,7 +146,7 @@ function Products() {
                     <Img
                       src={jacket}
                       alt="jacket"
-                      className="w-[24px] h-[24px] cursor-pointer hover:scale-1255"
+                      className="w-[24px] h-[24px] cursor-pointer hover:scale-125"
                     ></Img>
                     <Text
                       size="texts"
@@ -357,7 +360,7 @@ function Products() {
                     className=" relative sm:right-[0%] overflow-y text-left"
                   >
                     <MenuButton className=" flex w-56 justify-between  text-[16px] sm:text-[14px] md:px-1.5 px-1 py-1 text-1xl  text-white ring-1 ring-inset ring-gray-500 ">
-                      <p className="text-gray-500 px-1">Sort by:</p>&nbsp;{" "}
+                      <Text as="p" className="text-gray-500 px-1">Sort by:</Text>&nbsp;{" "}
                       {dropdown}
                       <img
                         src={drop_down}

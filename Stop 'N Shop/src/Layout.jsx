@@ -649,7 +649,7 @@ function Layout() {
     setCategory(category)
   }
 
-  const setaddtopurchase = (product) => {
+  const setaddtopurchase = () => {
     const copyPurchaseList = [...addToPurchase]
     const copyCartList = [...addToCart]
 
@@ -660,6 +660,7 @@ function Layout() {
     // copyPurchaseList.push(copyCartList)
     setAddToCart([]);
     setAddToPurchase(copyPurchaseList)
+
   }
 
   const setaddtocart = (product) => {
@@ -684,6 +685,10 @@ function Layout() {
     if (cart && cart.length > 0) {
       setAddToCart(cart);
     }
+    const purchase = JSON.parse(localStorage.getItem("purchase"));
+    if(purchase && purchase.length > 0){
+      setAddToPurchase(purchase)
+    }
 
     onAuthStateChanged(auth, async(user)=>{
       if(user){
@@ -698,7 +703,8 @@ function Layout() {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(addToCart));
-  }, [addToCart]);
+    localStorage.setItem("purchase", JSON.stringify(addToPurchase))
+  }, [addToCart,addToPurchase]);
   
   
 
