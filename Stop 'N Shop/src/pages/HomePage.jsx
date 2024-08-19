@@ -97,7 +97,7 @@ function HomePage() {
     <>
       {/*Title */}
       <Helmet>
-        <title>Stop 'N Shop - Home</title>
+        <title>Stop &apos;N Shop - Home</title>
         <meta
           name="description"
           content="Discover our Summer Sale with up to 50% off on the latest fashion collecitons. 

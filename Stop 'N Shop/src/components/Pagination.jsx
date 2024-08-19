@@ -1,4 +1,12 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
+Pagination.propTypes = {
+  postsPerPage:PropTypes.string,
+  length:PropTypes.string,
+  handlePagination:PropTypes.func,
+  currentPage:PropTypes.string,
+}
 
 function Pagination({ postsPerPage, length, handlePagination, currentPage }) {
   const paginationNumbers = [];
@@ -11,7 +19,7 @@ function Pagination({ postsPerPage, length, handlePagination, currentPage }) {
   return (
     <div className="flex py-[25px]">
       <div className="flex w-max border  justify-center">
-        {paginationNumbers.map((pageNumber, index) => (
+        {paginationNumbers.map((pageNumber) => (
           <button
             key={pageNumber}
             className={` h-[48px] w-[48px] xs:w-[24px] xs:h-[24px] border-black-900_68 border  ${

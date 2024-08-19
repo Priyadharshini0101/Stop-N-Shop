@@ -1,4 +1,17 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
+Button.propTypes = {
+  className:PropTypes.string,
+  shape:PropTypes.string,
+  rightIcon:PropTypes.element,
+  leftIcon:PropTypes.element,
+  variant:PropTypes.string,
+  size:PropTypes.string,
+  color:PropTypes.string,
+  children:PropTypes.string,
+}
+
 
 const shapes = {
   square: "rounded-[0px]",

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { logo } from "../assets/index.js";
 import { Helmet } from "react-helmet";
-import {login,signup} from '../firebase.js'  
-import { useNavigate} from "react-router-dom";
-import {Img,Text} from "../components/index.js";
+import {login,signup} from '../firebase.js'
+import {Img,Text,Button} from "../components/index.js";
 
 function Login() {
   const [signState, setSignState] = useState("Sign Up");
@@ -34,7 +33,7 @@ function Login() {
   return (
     <>
       <Helmet>
-        <title>Stop 'N Shop - {signState == "Sign Up"  ? "Sign In" : "Sign Up"}</title>
+        <title>Stop &apos;N Shop - {signState == "Sign Up"  ? "Sign In" : "Sign Up"}</title>
         <meta name="description" content={``}></meta>
       </Helmet>
     {loading ? (
@@ -58,7 +57,7 @@ function Login() {
               className="!font-bold  !text-gray-800 underline underline-offset-4 italic
           "
             >
-              Stop 'N Shop
+              Stop &apos;N Shop
             </Text>
           }
         ></Img>
@@ -114,7 +113,7 @@ function Login() {
             {signState  == "Sign In"? (
             
               <Text as="p" className="sm:text-[14px] xs:text-[12px] text-black-900_68">
-                Don't have an account?{" "} 
+                Don &apos;t have an account?{" "} 
                 <span
                   className="ml-[6px] text-gray-800 hover:text-gray-500 font-semibold cursor-pointer"
                   onClick={() =>{ setSignState("Sign Up")

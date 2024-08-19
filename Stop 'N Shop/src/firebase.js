@@ -1,8 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import {getAuth,createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from 'firebase/auth'
 import {addDoc,collection,getFirestore} from 'firebase/firestore'
-import toast,{Toaster} from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAevY5UT0t8M_NyyYrPA1ASg9ReOUQiOJM",
@@ -15,7 +14,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app)
 const db = getFirestore(app)
 

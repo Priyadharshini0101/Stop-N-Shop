@@ -3,6 +3,13 @@ import { Template } from "./index.js";
 import useDataContext from "../contexts/data";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import PropTypes from 'prop-types'
+
+Feature.propTypes = {
+  filter:PropTypes.filter,
+  design:PropTypes.bool,
+  product_id:PropTypes.string,
+}
 
 function Feature({ filter, design = true, product_id }) {
   const { data } = useDataContext();
@@ -46,7 +53,7 @@ function Feature({ filter, design = true, product_id }) {
           autoPlayInterval={2000}
           infinite
           keyboardNavigation={true}
-          items={sliderItems.map((i, index) => (
+          items={sliderItems.map((i) => (
             <Template
               page="Features"
               key={i.id}

@@ -8,6 +8,17 @@ import {
 const sizes = {
   xs: "p-[31px]",
 };
+import PropTypes from 'prop-types'
+
+ReactTable.propTypes = {
+  columns: PropTypes.string,
+  data:PropTypes.array,
+  headerProps:PropTypes.object,
+  bodyProps:PropTypes.object,
+  className:PropTypes.string,
+  rowDataProps:PropTypes.object,
+  size:PropTypes.string,
+}
 
 function ReactTable({
   columns,

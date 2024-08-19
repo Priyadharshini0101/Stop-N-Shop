@@ -1,6 +1,16 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
+import PropTypes from 'prop-types'
 
+RatingBar.propTypes = {
+  children:PropTypes.string,
+  ratingChanged:PropTypes.string,
+  className:PropTypes.string,
+  starCount:PropTypes.number,
+  color:PropTypes.string,
+  activeColor:PropTypes.string,
+  isEditable:PropTypes.bool,
+}
 function RatingBar({
   children,
   ratingChanged,

@@ -2,7 +2,6 @@ import React from "react";
 import { Heading, Img, Input, Text } from "./index.js";
 import { Link } from "react-scroll";
 import { arrow, facebook, instagram, twitter } from "../assets/index.js";
-
 import useDataContext from "../contexts/data.js";
 
 function Footer() {
@@ -280,7 +279,7 @@ function Footer() {
               </a>
             </div>
             <Text size="xs" as="p" className="!text-white-A700">
-              Copyright &#169; 2021 Stop 'N Shop. All Right Reserved
+              Copyright &#169; 2021 Stop &apos;N Shop. All Right Reserved
             </Text>
           </div>
         </div>

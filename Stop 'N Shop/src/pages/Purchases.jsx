@@ -1,7 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import useDataContext from '../contexts/data'
-import { Suspense } from 'react'
-import { Template,RatingBar,Input,Button,Heading,Text,Img } from '../components'
+import { Button,Heading,Text,Img } from '../components'
 import { createColumnHelper } from "@tanstack/react-table";
 import ReactTable from "../components/ReactTable.jsx"; 
 import NotFound from './NotFound.jsx'
@@ -12,7 +11,6 @@ function Purchases() {
   const [total,setTotal] = useState(0)
   setheader(true)
   useEffect(() =>{
-    const sum = 0;
     addToPurchase.map((purchase) =>{
         setTotal((total) => total + (purchase.price * purchase.quantity))
     })
@@ -33,7 +31,7 @@ function Purchases() {
             </Text>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
             Product
           </Text>
@@ -49,7 +47,7 @@ function Purchases() {
             ></Img>
           </div>
         ),
-        header: (info) => <div></div>,
+        header: () => <div></div>,
         meta: { width: "500px" },
       }),
       tableColumnHelper.accessor("quantity", {
@@ -60,7 +58,7 @@ function Purchases() {
             </Text>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[31px] pt-[5px] !font-medium sm:pb-4">
             Quantity
           </Text>
@@ -80,7 +78,7 @@ function Purchases() {
             </Text>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[33px] pt-[3px] !font-medium sm:pb-4">
             Price
           </Text>
@@ -98,7 +96,7 @@ function Purchases() {
                 as="p"
                 className=" !text-gray-800 md:ml-0"
               >
-                {addToPurchase.map((cart, index) =>
+                {addToPurchase.map((cart) =>
                   cart.id === info.getValue("id")
                     ? "$" + Number(cart.price) * Number(cart.quantity)
                     : ""
@@ -107,7 +105,7 @@ function Purchases() {
             </div>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
             Total
           </Text>

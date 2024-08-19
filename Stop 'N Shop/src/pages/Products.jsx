@@ -62,7 +62,7 @@ function Products() {
     handlePagination(1);
   }, [categories, rating, price]);
 
-  const [prevPrice, setPrevPrice] = useState([]);
+  const prevPrice = []
   const handlePrevPrice = (price) => {
     if (prevPrice[prevPrice.length - 1] === price) {
       prevPrice.pop();

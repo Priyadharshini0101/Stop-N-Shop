@@ -1,4 +1,16 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types'
+
+Checkbox.propTypes = {
+    className:PropTypes.string,
+    name:PropTypes.string,
+    label:PropTypes.element,
+    id:PropTypes.string,
+    onChange:PropTypes.func,
+    variant:PropTypes.string,
+    size:PropTypes.string,
+    handleClick:PropTypes.func,
+}
 
 const variants = {
   primary: "border-blue_gray-100 border-[3px] bordr-solid",
@@ -22,7 +34,6 @@ function Checkbox({
   const handleChange = (e) => {
     if (onChange) {
       onChange(e?.target?.checked);
-      setPrice(1000);
     }
     if (e.target.checked) {
       setChecked(true);
@@ -43,7 +54,7 @@ function Checkbox({
           type="checkbox"
           name={name}
           onChange={handleChange}
-          onClick={(e) => handleClick(id, checked)}
+          onClick={() => handleClick(id, checked)}
           id={id}
         ></input>
         {!!label && (

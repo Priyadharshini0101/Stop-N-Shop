@@ -1,6 +1,12 @@
 import React from "react";
 import { Heading, Text } from "./index.js";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
+
+Section.propTypes = {
+  heading:PropTypes.string,
+  className:PropTypes.string,
+}
 
 function Section({ heading, className = "" }) {
   return (

@@ -1,5 +1,12 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
+Img.propTypes = {
+  className:PropTypes.string,
+  imgText:PropTypes.string,
+  src:PropTypes.string,
+  alt:PropTypes.string,
+}
 function Img({
   className = "",
   imgText,

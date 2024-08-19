@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Text, Heading, Img, Button, Input } from "../components/index.js";
 import { createColumnHelper } from "@tanstack/react-table";
 import ReactTable from "../components/ReactTable.jsx"; 
-import { close, shipping,paypal,credit_card_payment, bank_transfer } from "../assets/index.js";
+import { close,paypal,credit_card_payment, bank_transfer } from "../assets/index.js";
 import toast from "react-hot-toast";
 import NotFound from "./NotFound.jsx";
 import Select from 'react-select'
@@ -86,7 +86,7 @@ function Cart() {
             </Text>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
             Product
           </Text>
@@ -102,7 +102,7 @@ function Cart() {
             ></Img>
           </div>
         ),
-        header: (info) =>(
+        header: () =>(
           <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
           Product Images
         </Text>
@@ -117,7 +117,7 @@ function Cart() {
             </Text>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[31px] pt-[5px] !font-medium sm:pb-4">
             Quantity
           </Text>
@@ -137,7 +137,7 @@ function Cart() {
             </Text>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[33px] pt-[3px] !font-medium sm:pb-4">
             Price
           </Text>
@@ -154,7 +154,7 @@ function Cart() {
                 as="p"
                 className=" !text-gray-800 md:ml-0"
               >
-                {addToCart.map((cart, index) =>
+                {addToCart.map((cart) =>
                   cart.id === info.getValue("id")
                     ? "$" + Number(cart.price) * Number(cart.quantity)
                     : ""
@@ -163,7 +163,7 @@ function Cart() {
             </div>
           </div>
         ),
-        header: (info) => (
+        header: () => (
           <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
             Total
           </Text>
@@ -194,7 +194,7 @@ function Cart() {
         </div>
         
         ),
-        header: (info) => (
+        header: () => (
    
           <Text as="p" className="pb-[35px] !font-medium sm:pb-4">
             Remove
@@ -295,8 +295,6 @@ function Cart() {
                 <Input
                   placeholder="Enter coupon code"
                   className=" !text-gray-800"
-                  
-                  onChange={(e) => setDiscount(Number(e.target.value))}
                 ></Input>
                 <Button
                   size="xl"

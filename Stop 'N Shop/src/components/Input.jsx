@@ -1,4 +1,20 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
+Input.propTypes = {
+  className:PropTypes.string,
+  name:PropTypes.string,
+  placeholder:PropTypes.string,
+  type:PropTypes.string,
+  label:PropTypes.string, 
+  prefix:PropTypes.string,
+  suffix:PropTypes.string,
+  background:PropTypes.string,
+  shape:PropTypes.string,
+  variant:PropTypes.string,
+  color:PropTypes.string,
+  searchBarValue:PropTypes.string,
+}
 
 const shapes = {
   square: "rounded-[0px]",
@@ -15,13 +31,6 @@ const variants = {
     blue_gray_100:"text-gray-800 border-b border-blue_gray-100 border-solid"
   }
 };
-
-// cons sizes= {
-//   sm:"h-[57px] text-[18px]",
-//   xs:"h-[48px] text-[18px]",
-//   lg:"h-[60px]",
-//   md:"h-[40px]  text-[18px]"
-// }
 
 function Input({
   className = " ",

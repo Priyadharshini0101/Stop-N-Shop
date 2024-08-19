@@ -2,12 +2,20 @@ import React from "react";
 import { Text, Img } from "./index.js";
 import { warning } from "../assets/index.js";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
+
+Template.propTypes = {
+  data:PropTypes.string,
+  review:PropTypes.string,
+  addToCart:PropTypes.string,
+  className:PropTypes.string,
+  page:PropTypes.string,
+}
 
 function Template({
   data = { id: 0, image: warning, label: "Purple Warm Jacket", price: "$299" },
   review,
   addToCart,
-  size = "xs",
   className = "",
   page = "",
 }) {

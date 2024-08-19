@@ -1,4 +1,12 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
+Heading.propTypes = {
+ className:PropTypes.string,
+ children:PropTypes.string,
+ size:PropTypes.string,
+ as:PropTypes.string,
+}
 
 const sizes = {
   lg: "text-7xl lg:text-7xl md:text-5xl",

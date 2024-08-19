@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Img, Input, Text } from "./index.js";
+import { Img, Input, Text } from "./index.js";
 import { Link } from "react-scroll";
 import useDataContext from "../contexts/data.js";
 import { logo, white_search_icon, shopping_cart, drop_down,mail} from "../assets/index.js";
@@ -12,7 +12,6 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 function Header() {
   const { scroll, header } = useDataContext();
   const [menu, setMenu] = useState(false);
-  const [searchBarValue, setSearchBarValue] = useState("");
   const [user,setUser] = useState()
   
   useEffect(() =>{
@@ -25,11 +24,7 @@ function Header() {
         querySnapshot.forEach((doc) => {
           setUser(doc.data())
         });   
-      }
-   
-   
-
-  
+      }  
            
     })
 
@@ -50,7 +45,7 @@ function Header() {
               className="!font-bold  !text-gray-800 underline underline-offset-4 italic
           "
             >
-              Stop 'N Shop
+              Stop &apos;N Shop
             </Text>
           }
         ></Img>
@@ -203,7 +198,7 @@ function Header() {
          
      
         
-          <div class="relative inline-block top-[-25px] right-[-25px]"  onPointerLeave={() => setMenu(false)}>
+          <div className="relative inline-block top-[-25px] right-[-25px]"  onPointerLeave={() => setMenu(false)}>
              
              <div
              
@@ -212,7 +207,7 @@ function Header() {
                role="menu"
                aria-orientation="vertical"
                aria-labelledby="menu-button"
-               tabindex="-1"
+               tabIndex="-1"
                
                  
              >
@@ -227,9 +222,9 @@ function Header() {
                   <NavLink to="/purchases">
                  <a
                      href="#"
-                     class="text-[14px] hover:font-bold py-[4%] text-left"
+                     className="text-[14px] hover:font-bold py-[4%] text-left"
                      role="menuitem"
-                     tabindex="-1"
+                     tabIndex="-1"
                      id="menu-item-1"
                    >
                     Purchases
@@ -241,9 +236,9 @@ function Header() {
                  <div className="flex gap-[10px] py-[1%] px-[10%]" onClick={() => logout()}>
                    <a
                      href="#"
-                     class="text-[14px] hover:font-bold  py-[4%]  text-left"
+                     className="text-[14px] hover:font-bold  py-[4%]  text-left"
                      role="menuitem"
-                     tabindex="-1"
+                     tabIndex="-1"
                      id="menu-item-1"
                    >
                     Sign Out

@@ -1,6 +1,12 @@
 import React from "react";
 import { Text } from "../components/index.js";
 import useDataContext from "../contexts/data.js";
+import PropTypes from 'prop-types'
+
+NotFound.propTypes = {
+    title:PropTypes.title 
+}
+
 function NotFound({title = "Oops! We ran out of code"}) {
   const { setheader } = useDataContext();
   setheader(true);
